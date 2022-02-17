@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="关于爬虫框架scrapy"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="python-scrapy"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="关于爬虫框架scrapy"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="AmandaWuyy"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>python-scrapy - AmandaWuyy</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Try to change</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/AmandaWuyy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>python-scrapy</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-02-17
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>之前一直用requests和BeautifulSoup，尝试一下scrapy框架</p>
+<h2 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h2><p>安装python和pip，本文基于python3</p>
+<h3 id="（一）框架架构"><a href="#（一）框架架构" class="headerlink" title="（一）框架架构"></a>（一）框架架构</h3><p>建立在twisted这个高效的异步模型上。</p>
+<p>主要分为五部分：</p>
+<p>调度器：用于url的调度，比如入队，顺序出队请求下载等。决定下一个要抓取的网址是什么。</p>
+<p>spider：就是用来爬虫，设定规则，提取内容的。</p>
+<p>下载器：用来访问网页得到响应，下载网络资源。</p>
+<p>pipeline：处理爬虫(spider)提取的实体。用来数据持久化，比如放入数据库。</p>
+<p>引擎：就是核心，用来控制整个流程。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ck784101777/article/details/104468780/">整体架构图</a></p>
+<h3 id="（二）安装Scrapy"><a href="#（二）安装Scrapy" class="headerlink" title="（二）安装Scrapy"></a>（二）安装Scrapy</h3><pre><code>pip install scrapy
+</code></pre>
+<p>插播：<a target="_blank" rel="noopener" href="https://blog.csdn.net/DarrenXf/article/details/82952004">pip和python区别？</a></p>
+<p>pip是python的包管理工具，pip和pip3版本不同，都位于Scripts\目录下：</p>
+<p>如果系统中只安装了Python2，那么就只能使用pip。</p>
+<p>如果系统中只安装了Python3，那么既可以使用pip也可以使用pip3，二者是等价的。</p>
+<p>如果系统中同时安装了Python2和Python3，则pip默认给Python2用，pip3指定给Python3用。</p>
+<h3 id="（三）新建项目"><a href="#（三）新建项目" class="headerlink" title="（三）新建项目"></a>（三）新建项目</h3><p>在想要新建项目的路径下</p>
+<pre><code>scrapy startproject 项目名
+scrapy genspider 爬虫名 域名    //可有可无，会在spiders下自动生成.py文件，也就是将来的爬虫文件
+</code></pre>
+<p>一个例子：</p>
+<pre><code>scrapy startproject baidubaike
+cd baidubaike
+scrapy genspider baike www.baike.com
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://wangxin1248.github.io/python/2018/09/python3-spider-12.html">生成的目录结构</a></p>
+<h3 id="（四）代码编写"><a href="#（四）代码编写" class="headerlink" title="（四）代码编写"></a>（四）代码编写</h3><p>（1）首先看一下配置文件：setting.py</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ck784101777/article/details/104468780/">参考</a></p>
+<p>BOT_NAME：项目名</p>
+<p>USER_AGENT：默认是注释的，这个东西非常重要，如果不写很容易被判断为电脑，简单点洗一个Mozilla&#x2F;5.0即可</p>
+<p>ROBOTSTXT_OBEY：是否遵循机器人协议，默认是<code>True</code>，需要改为<code>False</code>，否则很多东西爬不了</p>
+<p>CONCURRENT_REQUESTS：最大并发数，很好理解，就是同时允许开启多少个爬虫线程</p>
+<p>DOWNLOAD_DELAY：下载延迟时间，单位是秒，控制爬虫爬取的频率，根据你的项目调整，不要太快也不要太慢，默认是3秒，即爬一个停3秒，设置为1秒性价比较高，如果要爬取的文件较多，写零点几秒也行</p>
+<p>COOKIES_ENABLED：是否保存COOKIES，默认关闭，开机可以记录爬取过程中的COKIE，非常好用的一个参数</p>
+<p>DEFAULT_REQUEST_HEADERS：默认请求头，上面写了一个USER_AGENT，其实这个东西就是放在请求头里面的，这个东西可以根据你爬取的内容做相应设置。</p>
+<p>ITEM_PIPELINES：项目管道，300为优先级，越低越爬取的优先度越高</p>
+<p>（2）爬虫文件：spider中的：baike.py</p>
+<p><code>class BaikeSpider(scrapy.Spider)</code>：定义了BaikeSpider，包括name，allowed_domains，start_urls等。这部分内容在后面用<code>self.xx</code>（比如<code>self.start_urls</code>）表示。其中，后面的url一定要包含在allowed_domains，否则有可能产生回调函数不执行的情况。</p>
+<p><code>def start_requests(self)</code>: 构造初始页面请求。在这里可以通过<code>yield scrapy.Request(url, callback=self.parse, dont_filter=True)</code> 回调函数的方式调用下面的parse函数。</p>
+<p><code>def parse(self, response)</code>：定义读取数据的操作。这里有时候会返回一个item：<code>yield item</code>。用于写入数据库。</p>
+<p>（3）写入数据库：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/44366e9a2ed5">参考</a></p>
+<p>（3.1）关于item：items.py</p>
+<p>这里定义<code>class BaidubaikeItem(scrapy.Item)</code>，注意要和要写入的数据表的表结构一致</p>
+<pre><code>xx= scrapy.Field()
+</code></pre>
+<p>（3.2）持久化存储：pipelines.py</p>
+<p>连接mysql数据库，这里使用pymysql</p>
+<p>安装：</p>
+<pre><code>pip install pymysql 
+</code></pre>
+<p>配置数据库信息：</p>
+<pre><code>conn = pymysql.connect(...)
+</code></pre>
+<p>注意：配置的时候charset是utf8而不是utf-8，port不需要加引号。</p>
+<p>写入：</p>
+<pre><code>def process_item(self, item, spider):
+</code></pre>
+<p>注意，这里一定要setting.py中的</p>
+<pre><code>ITEM_PIPELINES = &#123;
+    &#39;baidubaike.pipelines.BaidubaikePipeline&#39;: 300
+&#125;
+</code></pre>
+<p>生效。</p>
+<p>（4）程序的入口：spider中的：run.py</p>
+<p>可以写个程序入口，避免反复调终端运行：</p>
+<pre><code>from scrapy import cmdline
+cmdline.execute(&#39;scrapy crawl baike&#39;.split())
+</code></pre>
+<p>（5）日志：setting.py：</p>
+<pre><code>LOG_LEVEL= &quot;&quot;
+LOG_FILE=&quot;日志名.log&quot;
+</code></pre>
+<p>日志等级分为：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ck784101777/article/details/104468780/">参考</a></p>
+<p>1.DEBUG 调试信息</p>
+<p>2.INFO 一般信息</p>
+<p>3.WARNING 警告</p>
+<p>4.ERROR 普通错误</p>
+<p>5.CRITICAL 严重错误</p>
+<p>如果设置<code>LOG_LEVEL=&quot;WARNING&quot;</code>，就只会WARNING等级之下的ERROR和CRITICAL。</p>
+<p>默认等级是1。</p>
+<p>（6）导出为json或scv格式:<a target="_blank" rel="noopener" href="https://blog.csdn.net/ck784101777/article/details/104468780/">参考</a></p>
+<p>执行爬虫文件时添加-o选项即可</p>
+<pre><code>scrapy crawl 项目名 -o *.csv
+scrapy crawl 项目名 -o *.json
+</code></pre>
+<p>对于json文件，在setting文件里添加，设置编码格式，否则会乱码：</p>
+<pre><code>FEED_EXPORT_ENCODING=&#39;utf-8&#39;
+</code></pre>
+<h3 id="（五）scrapy学习"><a href="#（五）scrapy学习" class="headerlink" title="（五）scrapy学习"></a>（五）scrapy学习</h3><p>（1）yield：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wiidi/article/details/111831380">参考</a></p>
+<p>yield 的作用就是把一个函数变成一个生成器(generator)，带有yield的函数不再是一个普通函数.<br>Python解释器会将其视为一个generator，单独调用（如fab(5)）不会执行fab函数，而是返回一个 iterable 对象！</p>
+<p>在for循环执行时，每次循环都会执行fab函数内部的代码，执行到yield b时，fab函数就返回一个迭代值，下次迭代时，代码从 yield b 的下一条语句继续执行，而函数的本地变量看起来和上次中断执行前是完全一样的，于是函数继续执行，直到再次遇到 yield。</p>
+<p>结论：yield要使用在循环中，这样生成器才有使用的意义。</p>
+<p>（2）Response:<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/40332579">Scrapy详解之Response</a></p>
+<p>（3）自定义函数：<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8c10d5a2e340">scrapy中无法调用自定义函数的问题</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ea5f14379570">scrapy中调用自定义方法</a></p>
+<p>（4）Selector选择器：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cnkai/p/7398970.html">Scrapy学习篇（六）之Selector选择器</a></p>
+<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>参考链接：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ck784101777/article/details/104468780/">Scrapy爬虫框架，入门案例（非常详细）</a></p>
+<p><a target="_blank" rel="noopener" href="https://wangxin1248.github.io/python/2018/09/python3-spider-12.html">Python3 爬虫（十二）：Scrapy 框架介绍</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/44366e9a2ed5">Scrapy入门教程之写入数据库</a></p>
+<p>案例：</p>
+<p>腾讯视频的案例：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ck784101777/article/details/104468780/">Scrapy爬虫框架，入门案例（非常详细）</a></p>
+<p>百度百科的案例：<a target="_blank" rel="noopener" href="https://github.com/Hao-Kailong/baiduBaikeSpider">百度百科爬虫</a></p>
+<p>scrapy+selenium+mysql+redis的案例：<a target="_blank" rel="noopener" href="https://www.imooc.com/article/268610">Scrapy抓取关键字（支持百度、搜狗等）</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/AmandaWuyy" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

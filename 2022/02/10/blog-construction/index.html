@@ -202,7 +202,7 @@
 <pre><code>用户名.github.io
 </code></pre>
 <p>生成SSHkey</p>
-<p>如果以前配置过：找到C:\Users\wyyhc.ssh中的pub后缀文件id_rsa.pub，复制<br>否则：</p>
+<p>如果以前配置过：找到 <code>C:/Users/用户/.ssh</code> 中的pub后缀文件id_rsa.pub，复制<br>否则：</p>
 <pre><code>ssh-keygen -t rsa -C &quot;注释文字（可以为邮箱或者名字）&quot;    //这将按照你提供的注释文字，创建一对密钥
 </code></pre>
 <p>生成后到相应的位置复制</p>
@@ -249,9 +249,10 @@ hexo s    //启动一个本地服务器，实现本地预览，默认端口4000
 <h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">Hexo官网主题</a></p>
 <p>找到主题的GitHub链接，clone到themes文件夹，修改 <code>ownblog/_config.yml</code> 以切换主题，修改 <code>themes/clean-blog/_config.yml</code> 以更改主题设计</p>
 <h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>以后每次到source的_posts文件夹下新建md文件，更新保存后</p>
-<pre><code>hexo g 
+<pre><code>hexo new &#39;test-blog&#39;
+hexo g 
 hexo s    //本地可预览
-hexo d    //https://amandawuyy.github.io/可预览
+hexo d    //https://用户名.github.io/可预览
 </code></pre>
 <p>参考链接：</p>
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023346633">保姆级——小白如何搭建自己的博客（Hexo+Github Pages）</a></p>
