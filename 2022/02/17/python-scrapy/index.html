@@ -233,9 +233,9 @@ scrapy genspider baike www.baike.com
 <p>DEFAULT_REQUEST_HEADERS：默认请求头，上面写了一个USER_AGENT，其实这个东西就是放在请求头里面的，这个东西可以根据你爬取的内容做相应设置。</p>
 <p>ITEM_PIPELINES：项目管道，300为优先级，越低越爬取的优先度越高</p>
 <p>（2）爬虫文件：spider中的：baike.py</p>
-<p><code>class BaikeSpider(scrapy.Spider)</code>：定义了BaikeSpider，包括name，allowed_domains，start_urls等。这部分内容在后面用<code>self.xx</code>（比如<code>self.start_urls</code>）表示。其中，后面的url一定要包含在allowed_domains，否则有可能产生回调函数不执行的情况。</p>
-<p><code>def start_requests(self)</code>: 构造初始页面请求。在这里可以通过<code>yield scrapy.Request(url, callback=self.parse, dont_filter=True)</code> 回调函数的方式调用下面的parse函数。</p>
-<p><code>def parse(self, response)</code>：定义读取数据的操作。这里有时候会返回一个item：<code>yield item</code>。用于写入数据库。</p>
+<p>class BaikeSpider(scrapy.Spider)：定义了BaikeSpider，包括name，allowed_domains，start_urls等。这部分内容在后面用<code>self.xx</code>（比如<code>self.start_urls</code>）表示。其中，后面的url一定要包含在allowed_domains，否则有可能产生回调函数不执行的情况。</p>
+<p>def start_requests(self)：构造初始页面请求。在这里可以通过<code>yield scrapy.Request(url, callback=self.parse, dont_filter=True)</code> 回调函数的方式调用下面的parse函数。</p>
+<p>def parse(self, response)：定义读取数据的操作。这里有时候会返回一个item：<code>yield item</code>。用于写入数据库。</p>
 <p>（3）写入数据库：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/44366e9a2ed5">参考</a></p>
 <p>（3.1）关于item：items.py</p>
 <p>这里定义<code>class BaidubaikeItem(scrapy.Item)</code>，注意要和要写入的数据表的表结构一致</p>
@@ -249,7 +249,7 @@ scrapy genspider baike www.baike.com
 <p>配置数据库信息：</p>
 <pre><code>conn = pymysql.connect(...)
 </code></pre>
-<p>注意：配置的时候charset是utf8而不是utf-8，port不需要加引号。</p>
+<p>注意：配置的时候charset是<code>utf8</code>而不是<code>utf-8</code>，port不需要加引号。</p>
 <p>写入：</p>
 <pre><code>def process_item(self, item, spider):
 </code></pre>

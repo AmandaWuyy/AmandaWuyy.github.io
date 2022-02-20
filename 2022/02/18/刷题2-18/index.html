@@ -13,6 +13,8 @@
     
 
     
+        <meta name="description" content="关于排序：347、451:为什么和215不同，这里建堆的时候shiftUp和shiftDown需要.value？因为这里在使用MinHeap的时候，插入的是{ value, key }，那么在比较大小的时候，设定用value值来比较。因此，在实际使用过程中，数据结构根据题意动态调整。Map类的题，在"/>
+    
 
     <!--Author-->
     
@@ -21,10 +23,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="AmandaWuyy"/>
+        <meta property="og:title" content="刷题2-18"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="关于排序：347、451:为什么和215不同，这里建堆的时候shiftUp和shiftDown需要.value？因为这里在使用MinHeap的时候，插入的是{ value, key }，那么在比较大小的时候，设定用value值来比较。因此，在实际使用过程中，数据结构根据题意动态调整。Map类的题，在"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>AmandaWuyy</title>
+    <title>刷题2-18 - AmandaWuyy</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -156,141 +160,71 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>AmandaWuyy</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                <div class="post-heading">
+                    <h1>刷题2-18</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-02-18
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2022/02/19/刷题2-19/">
-        <h2 class="post-title">
-            刷题2-19
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-19
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/18/刷题2-18/">
-        <h2 class="post-title">
-            刷题2-18
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-18
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/17/datastructor/">
-        <h2 class="post-title">
-            AmandaWuyy
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-17
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/17/刷题2-17/">
-        <h2 class="post-title">
-            刷题2-17
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-17
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/17/python-scrapy/">
-        <h2 class="post-title">
-            python-scrapy
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-17
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/10/blog-construction/">
-        <h2 class="post-title">
-            个人博客搭建（Hexo + Github Pages）
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-10
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/10/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-10
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
 
-            <ul class="pager">
-    
-    
-</ul>
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>关于排序：<br>347、451:<br>为什么和215不同，这里建堆的时候shiftUp和shiftDown需要.value？<br>因为这里在使用MinHeap的时候，插入的是{ value, key }，那么在比较大小的时候，设定用value值来比较。<br>因此，在实际使用过程中，数据结构根据题意动态调整。<br>Map类的题，在堆中插入{ value, key }会方便一点。</p>
+<p>为什么这里map和h可以用const声明？<br>因为const在声明Object类型的时候，里面的属性值可以改变。</p>
+<p>关于Map：<br>两种迭代方式：<br>（1）for…of 迭代<br>（2）forEach() 迭代<br>forEach中只有一个参数的时候，该参数是value；<br>forEach中如果有两个参数的时候，需要注意它跟for…of的区别，forEach中的两个参数分别是value和key，它跟for…of是反的。</p>
+<p>Map和Array的转换：</p>
+<pre><code>//Map转Array：
+const array = Array.from(map);
+//Array转Map：
+const map = new Map(array);
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39607474/article/details/111039147">注意</a>：Map转换成数组是一个二维数组。同理要想一个数组能够转换成Map，该数组必须是二维数组。</p>
+<p>75:<br>灵活思考。</p>
+<p>关于贪心：<br>每次操作，局部最优；最终结果，全局最优。<br>435:<br>感觉逻辑是对的，只是超时，通过55&#x2F;58：<br>（1）按头排序：从小到大头排序，头同，从小到大尾排序。<br>头同，则尾大删。<br>头不同，若新头&lt;原尾，则尾大删。<br>（2）按尾排序：从大到小尾排序，尾同，从小到大头排序。<br>尾同，则头小删。<br>尾不同，若新尾&lt;原头，则头小删。<br>反向思考。求最多的不重叠区间需要移除区间的个数，先求不重叠区间，再减。</p>
+<p>435、452：<br>扎气球的，就按计算最多的不重叠区间做。<br>为什么尾排序？因为要计算最多的不重叠区间，区间的结尾最重要，结尾越小，留给后面的空间越大，越有可能不重叠。</p>
+<p>406:<br>排序的时候，规则是尽量往结果序列靠拢。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />

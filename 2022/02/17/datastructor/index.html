@@ -13,6 +13,16 @@
     
 
     
+        <meta name="description" content="//小顶堆
+class MinHeap{
+    constructor(){
+        this.heap = [];
+    }
+    //交换节点
+    swap(i1, i2){
+        let temp = this.heap[i1];
+        this.heap"/>
+    
 
     <!--Author-->
     
@@ -25,6 +35,16 @@
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="//小顶堆
+class MinHeap{
+    constructor(){
+        this.heap = [];
+    }
+    //交换节点
+    swap(i1, i2){
+        let temp = this.heap[i1];
+        this.heap"/>
     
 
     <!--Open Graph Site Name-->
@@ -156,141 +176,120 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
+                <div class="post-heading">
                     <h1>AmandaWuyy</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-02-17
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2022/02/19/刷题2-19/">
-        <h2 class="post-title">
-            刷题2-19
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-19
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/18/刷题2-18/">
-        <h2 class="post-title">
-            刷题2-18
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-18
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/17/datastructor/">
-        <h2 class="post-title">
-            AmandaWuyy
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-17
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/17/刷题2-17/">
-        <h2 class="post-title">
-            刷题2-17
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-17
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/17/python-scrapy/">
-        <h2 class="post-title">
-            python-scrapy
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-17
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/10/blog-construction/">
-        <h2 class="post-title">
-            个人博客搭建（Hexo + Github Pages）
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-10
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2022/02/10/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2022-02-10
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
 
-            <ul class="pager">
-    
-    
-</ul>
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                //小顶堆
+class MinHeap{
+    constructor(){
+        this.heap = [];
+    }
+    //交换节点
+    swap(i1, i2){
+        let temp = this.heap[i1];
+        this.heap[i1] = this.heap[i2];
+        this.heap[i2] = temp;
+    }
+    //获取父节点
+    getParentIndex(i){
+        return Math.floor((i-1)/2);
+    }
+    //获取左右子节点
+    getLeftIndex(i){
+        return i*2+1;
+    }
+    getRightIndex(i){
+        return i*2+2;
+    }
+    //上移
+    shiftUp(index){
+        if(index == 0) {return;}
+        let parentIndex = this.getParentIndex(index);
+        if(this.heap[parentIndex] && this.heap[parentIndex] > this.heap[index]){
+            this.swap(parentIndex, index);
+            this.shiftUp(parentIndex);
+        }
+    }
+    //下移
+    shiftDown(index){
+        let leftIndex = this.getLeftIndex(index);
+        let rightIndex = this.getRightIndex(index);
+        if(this.heap[leftIndex] && this.heap[leftIndex] < this.heap[index]){
+            this.swap(leftIndex,index);
+            this.shiftDown(leftIndex);
+        }
+        if(this.heap[rightIndex] && this.heap[rightIndex] < this.heap[index]){
+            this.swap(rightIndex,index);
+            this.shiftDown(rightIndex);
+        }
+    }
+    //插入
+    insert(value){
+        this.heap.push(value);
+        this.shiftUp(this.heap.length-1);
+    }
+    //删除堆顶
+    pop(){
+        this.heap[0] = this.heap.pop();
+        this.shiftDown(0);
+    }
+    peek(){
+        return this.heap[0];
+    }
+    size(){
+        return this.heap.length;
+    }
+}
+//大顶堆就是修改一下shiftUp和shiftDown的大于小于号。
+//时间复杂度：O(nlogn)，建堆 O(n)，删除 O(klogn)，因为 k < n，所以渐进时间复杂为 O(n+klogn)=O(nlogn)
+//空间复杂度：O(logn)，递归使用栈空间
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
