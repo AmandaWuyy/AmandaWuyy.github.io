@@ -13,6 +13,9 @@
     
 
     
+        <meta name="description" content="项目开发的时候，遇到多个视图都使用地图的情况，如果每个页面都init一个map，似乎太重复和冗余，但写一个map通过组件引入的方式，又会遇到调用另一个组件内的方法的问题。因此，趁机学习一下vuex。
+Vuex：状态管理模式。集中式存储管理所有组件的状态。单个组件，单向数据流，很好理解。多个组件共享状"/>
+    
 
     <!--Author-->
     
@@ -21,10 +24,13 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="AmandaWuyy"/>
+        <meta property="og:title" content="map_vuex"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="项目开发的时候，遇到多个视图都使用地图的情况，如果每个页面都init一个map，似乎太重复和冗余，但写一个map通过组件引入的方式，又会遇到调用另一个组件内的方法的问题。因此，趁机学习一下vuex。
+Vuex：状态管理模式。集中式存储管理所有组件的状态。单个组件，单向数据流，很好理解。多个组件共享状"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +38,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +57,7 @@
 
     <!-- Title -->
     
-    <title>Archives: 2022 - AmandaWuyy</title>
+    <title>map_vuex - AmandaWuyy</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -155,153 +161,74 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2022</h1>
+                <div class="post-heading">
+                    <h1>map_vuex</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-02-21
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2022/02/22/跨域/">
-        <h1 class="post-title archive">
-            跨域
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-22
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>项目开发的时候，遇到多个视图都使用地图的情况，如果每个页面都init一个map，似乎太重复和冗余，但写一个map通过组件引入的方式，又会遇到调用另一个组件内的方法的问题。因此，趁机学习一下vuex。</p>
+<p>Vuex：<br>状态管理模式。集中式存储管理所有组件的状态。<br>单个组件，单向数据流，很好理解。<br>多个组件共享状态时，容易破坏单向数据流：</p>
+<pre><code>多个视图依赖于同一状态。
+来自不同视图的行为需要变更同一状态。
+</code></pre>
+<p>vuex：全局单例模式管理。</p>
+<p>首先，一个简单的store模式：<br>单独写一个store，state中记录值，写方法变更值，外面的组件调用state获得值，调用方法改变值。</p>
+<p>回到vuex：<br>核心是store（仓库），内包含state（状态）：<br>store中的state变化，相应的组件中的state都会变化。<br>不能直接改变state，想改变state，只能通过 提交 (commit) mutation。【这样的好处是可以跟踪状态的变化，可以通过console.log(‘say something…’)记录变化之类的】</p>
+<p>state：<br>可以在每个组件中引入，但麻烦。<br>直接在根中注入：写在app里。</p>
+<p>mapState 辅助函数：<br>一个组件需要获取多个状态。</p>
+<p>Getter：<br>从 store 中的 state 中派生出一些状态。</p>
+<p>Mutation： 同步事务<br> 非常类似于事件：每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数。</p>
+<p>Action：异步</p>
+<p> Module： store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块。</p>
+<p>一个插曲：<br>我的问题：<br>项目开发的时候，遇到多个视图都使用地图的情况，如果每个页面都init一个map，似乎太重复和冗余，但写一个map通过组件引入的方式，又会遇到调用另一个组件内的方法的问题。<br>比如我的项目中，tab2页面需要对map进行搜索，定位，checkin页面需要展示被tab2定位后的状态的map。<br>目前是通过传参实现的：checkin是tab2的子页面，从tab2跳转checkin的时候，poi的经纬度作为参数传递。<br>目前，有一个用来引入amap的locationMap组件。tab2引入locationMap，可以显示地图，但当tab2调用AMap.placeSearch方法时会报错，因为tab2和locationMap是兄弟节点。只能在tab2又写了initMap来引入地图，和locationMap重复了。<br>因此，尝试下vuex保存地图状态，把方法写在vuex中。</p>
+<p>也就是说，目前是tab2重写ininMap()，tab2&#x2F;checkin依赖传参。<br>我的解决：将LocationMap写作tab2的子组件，通过this.$refs.locationmap获取到map和placeSearch，从而实现地图上搜索poi的功能。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2022/02/21/map-vuex/">
-        <h1 class="post-title archive">
-            map_vuex
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-21
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2022/02/19/刷题2-19/">
-        <h1 class="post-title archive">
-            刷题2-19
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-19
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/18/刷题2-18/">
-        <h1 class="post-title archive">
-            刷题2-18
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-18
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/17/datastructor/">
-        <h1 class="post-title archive">
-            AmandaWuyy
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-17
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/17/刷题2-17/">
-        <h1 class="post-title archive">
-            刷题2-17
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-17
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/17/python-scrapy/">
-        <h1 class="post-title archive">
-            python-scrapy
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-17
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/10/blog-construction/">
-        <h1 class="post-title archive">
-            个人博客搭建（Hexo + Github Pages）
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-10
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/10/hello-world/">
-        <h1 class="post-title archive">
-            Hello World
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-10
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="首先看：同源策略。
+什么是同源？协议,域名,端口，三者都相同则为同源。同理，有一不同则为跨域。http://www.baidu.com:8080
+不同源会怎样？（1）无法读取非同源的 cookie、localstorage、indexdb
+（2）无法获取非同源的dom
+（3）无法发送非同源的ajax"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="跨域"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="首先看：同源策略。
+什么是同源？协议,域名,端口，三者都相同则为同源。同理，有一不同则为跨域。http://www.baidu.com:8080
+不同源会怎样？（1）无法读取非同源的 cookie、localstorage、indexdb
+（2）无法获取非同源的dom
+（3）无法发送非同源的ajax"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="AmandaWuyy"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>跨域 - AmandaWuyy</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Try to change</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/AmandaWuyy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>跨域</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-02-22
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>首先看：同源策略。</p>
+<h2 id="什么是同源？"><a href="#什么是同源？" class="headerlink" title="什么是同源？"></a>什么是同源？</h2><p>协议,域名,端口，三者都相同则为同源。同理，有一不同则为跨域。<br><a target="_blank" rel="noopener" href="http://www.baidu.com:8080/">http://www.baidu.com:8080</a></p>
+<h2 id="不同源会怎样？"><a href="#不同源会怎样？" class="headerlink" title="不同源会怎样？"></a>不同源会怎样？</h2><p>（1）无法读取非同源的 cookie、localstorage、indexdb</p>
+<p>（2）无法获取非同源的dom</p>
+<p>（3）无法发送非同源的ajax请求。准确说，可以向非同源的发送ajax请求，但服务器返回的数据会被浏览器拦截。（浏览器根据Header里的Access-Control-Allow-Origin决定是否交付结果）</p>
+<h2 id="谁来执行？"><a href="#谁来执行？" class="headerlink" title="谁来执行？"></a>谁来执行？</h2><p>浏览器。浏览器为了保护用户的数据安全而采取的策略。</p>
+<h2 id="怎么就保护了？"><a href="#怎么就保护了？" class="headerlink" title="怎么就保护了？"></a>怎么就保护了？</h2><p>针对（1）无法读取非同源的 cookie、localstorage、indexdb：最基本的，cookie保存用户的登录状态，京东不可以获得用户淘宝账户的cookie。</p>
+<p>针对（2）无法获取非同源的dom：如果没有，比如通过iframe嵌入子页面（银行页面）进行登陆注册，用户在输入的时候，父页面（恶意网页）可以通过dom直接获得。</p>
+<p>针对（3）无法发送非同源的ajax请求：拦截服务器返回的数据，防止用户信息被盗取。主要用来防止CSRF攻击。</p>
+<pre><code>什么是CSRF攻击？
+用户登录页面A，A向用户的cookie中添加标识。用户浏览恶意页面B，恶意页面B向A发送ajax请求，此时请求也带有A对应的cookie，所以可以请求成功获得返回数据。
+</code></pre>
+<p>（待更新：网络安全、http和https区别、三次握手）</p>
+<h2 id="如何跨域？"><a href="#如何跨域？" class="headerlink" title="如何跨域？"></a>如何跨域？</h2><h3 id="（1）降域："><a href="#（1）降域：" class="headerlink" title="（1）降域："></a>（1）降域：</h3><p>当两个网站一级域名相同的时候，比如：w1.example.com 和 w2.example.com，通过document.domain可以共享cookie</p>
+<pre><code>document.domain = &#39;example.com&#39;
+document.cookie = &#39;test1=hello&#39;    //A网页通过脚本设置一个 Cookie
+var allCookie = document.cookie    //B网页就可以读到这个 Cookie
+</code></pre>
+<p>但这种只适用于Cookie和iframe窗口。</p>
+<p>共享cookie方法二：服务器在设置cookie的时候，指定cookie所属域名为一级域名。</p>
+<h3 id="（2）跨文档通信API："><a href="#（2）跨文档通信API：" class="headerlink" title="（2）跨文档通信API："></a>（2）跨文档通信API：</h3><p>window.postMessage：允许跨窗口通信。<br>父子窗口通过message事件监听对方的消息。</p>
+<h3 id="（3）jsonp："><a href="#（3）jsonp：" class="headerlink" title="（3）jsonp："></a>（3）jsonp：</h3><p>利用script标签。动态插入<code>&lt;script&gt;</code>元素，向跨源网址发送请求。</p>
+<h3 id="（4）WebSocket："><a href="#（4）WebSocket：" class="headerlink" title="（4）WebSocket："></a>（4）WebSocket：</h3><p>通信协议，加密（wss:&#x2F;&#x2F;）、非加密（ws:&#x2F;&#x2F;）。该协议不实行同源策略。<br>WebSocket请求头信息中有一个Origin，表示发自哪个域名。服务器根据Origin判断该域名是否在白名单内，决定是否允许本次通信。</p>
+<pre><code>WebSocket和http的区别：
+首先，都是应用层协议，都基于TCP协议。
+WebSocket：双向通信协议，浏览器和服务端的全双工通信。也就是建立连接后，服务端与客户端都能主动向对方发送/接收数据。
+WebSocket建立连接时，需要借助http协议。
+</code></pre>
+<h3 id="（5）CORS（跨域资源共享）："><a href="#（5）CORS（跨域资源共享）：" class="headerlink" title="（5）CORS（跨域资源共享）："></a>（5）CORS（跨域资源共享）：</h3><p>允许浏览器向跨源服务器发送XMLHttpRequest请求。与ajax类似，发送请求中多了一些头信息。</p>
+<p>（1）普通跨域请求：只需服务器端设置Access-Control-Allow-Origin</p>
+<p>（2）带cookie跨域请求：前后端都需要进行设置</p>
+<p>前端：根据.withCredentials判断是否带有cookie</p>
+<p>服务端：设置Access-Control-Allow-Origin</p>
+<h3 id="（6）nginx反向代理："><a href="#（6）nginx反向代理：" class="headerlink" title="（6）nginx反向代理："></a>（6）nginx反向代理：</h3><p>修改nginx.conf。</p>
+<pre><code>正向代理：客户端通过代理访问服务端。比如通过vpn访问google。
+架设在客户端和服务端之间，请求转发。
+
+反向代理：
+架设在服务端，通过缓冲经常被请求的页面，缓解服务器的工作量。
+以代理服务器接受来自客户端的请求，将请求转发给内网上的目标服务器，并将结果返回给客户端。
+这里的代理服务器和目标服务器对外表现为一个服务器。
+作用：为了保证内网的安全；负载均衡。
+</code></pre>
+<p>来自<a target="_blank" rel="noopener" href="https://www.cnblogs.com/taostaryu/p/10547132.html">反向代理和正向代理区别</a>的一个总结：</p>
+<p>正向代理即是客户端代理, 代理客户端, 服务端不知道实际发起请求的客户端</p>
+<p>反向代理即是服务端代理, 代理服务端, 客户端不知道实际提供服务的服务端</p>
+<p>参考链接：<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2547b0a15707">浏览器同源策略是什么？没有同源策略会怎么样？</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html">浏览器同源政策及其规避方法</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38128179/article/details/84956552">什么是跨域？跨域解决方法</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/AmandaWuyy" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
