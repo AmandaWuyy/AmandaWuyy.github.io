@@ -13,6 +13,12 @@
     
 
     
+        <meta name="description" content="关于img的url：src和:src的区别v-for的写法require()
+几种传参，query，params
+Webpack打包Vue源码还原：
+目前找到两种：reverse-sourcemap 和 restore-source-tree
+reverse-sourcemap一口气还原，但效果差，"/>
+    
 
     <!--Author-->
     
@@ -21,10 +27,16 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="AmandaWuyy"/>
+        <meta property="og:title" content="个人项目-显示景点"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="关于img的url：src和:src的区别v-for的写法require()
+几种传参，query，params
+Webpack打包Vue源码还原：
+目前找到两种：reverse-sourcemap 和 restore-source-tree
+reverse-sourcemap一口气还原，但效果差，"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +44,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +63,7 @@
 
     <!-- Title -->
     
-    <title>Archives - AmandaWuyy</title>
+    <title>个人项目-显示景点 - AmandaWuyy</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -155,168 +167,93 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archives</h1>
+                <div class="post-heading">
+                    <h1>个人项目-显示景点</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-02-27
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2022/03/05/执行上下文/">
-        <h1 class="post-title archive">
-            执行上下文
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-03-05
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>关于img的url：<br>src和:src的区别<br>v-for的写法<br>require()</p>
+<p>几种传参，query，params</p>
+<p>Webpack打包Vue源码还原：</p>
+<p>目前找到两种：reverse-sourcemap 和 restore-source-tree</p>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/reverse-sourcemap">reverse-sourcemap</a>一口气还原，但效果差，缺失文件多</p>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/restore-source-tree">restore-source-tree</a>会一个文件夹一个文件夹的还原</p>
+<p>用<a target="_blank" rel="noopener" href="https://yukaii.tw/blog/2017/02/21/restore-source-code-from-sourcemap-file/">用restore-source-tree 一次还原source map 网站原始码</a>改过的restore-source-tree</p>
+<p>首先寻找和下载sourcemap文件：</p>
+<pre><code>f12 → sources → webpack:// → 点开每个文件夹，发现下面有“source mapped from xxx.js”
+</code></pre>
+<p>右键复制这段路径</p>
+<p>下载map文件：</p>
+<pre><code>curl https://lysh.smgtech.net/js/chunk-vendors.70af97b4.js.map &gt; chunk-vendors.70af97b4.js.map
+
+curl https://lysh.smgtech.net/js/chunk-f260e320.6e283292.js.map &gt; chunk-f260e320.6e283292.js.map
+
+curl https://lysh.smgtech.net/js/app.07fa07b9.js.map &gt; app.07fa07b9.js.map
+</code></pre>
+<p>安装：</p>
+<pre><code>npm install -g Yukaii/restore-source-tree#98ccfc2
+</code></pre>
+<p>还原：</p>
+<pre><code>restore-source-tree -n --out-dir ./rebuild chunk-vendors.70af97b4.js.map
+restore-source-tree -n --out-dir ./rebuild chunk-f260e320.6e283292.js.map
+restore-source-tree -n --out-dir ./rebuild app.07fa07b9.js.map
+</code></pre>
+<p>参考链接：</p>
+<p>sourcemap的：</p>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/reverse-sourcemap">reverse-sourcemap</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hack404/p/12509359.html">渗透测试之Webpack打包Vue源码还原</a></p>
+<p>source-tree的：</p>
+<p><a target="_blank" rel="noopener" href="https://yukaii.tw/blog/2017/02/21/restore-source-code-from-sourcemap-file/">用restore-source-tree 一次还原source map 网站原始码</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/restore-source-tree">restore-source-tree</a></p>
+<p>post方法要用method<br>行内元素和块级元素的转换<br>display: block 和 display: inline<br>修改一下各个页面title的bug</p>
+<p>改一下getImgUrl(){<br>          let imgurl &#x3D; this.user &#x3D;&#x3D; null? ‘’ : this.user.img;<br>          return imgurl &#x3D;&#x3D; ‘’? require(“@&#x2F;..&#x2F;public&#x2F;assets&#x2F;img&#x2F;blackcat.svg”) : require(“@&#x2F;..&#x2F;public&#x2F;assets&#x2F;img&#x2F;“+imgurl);<br>        },<br>        目前只有tab1改了.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2022/02/27/个人项目-显示景点/">
-        <h1 class="post-title archive">
-            个人项目-显示景点
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-27
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2022/02/25/刷题2-25/">
-        <h1 class="post-title archive">
-            刷题2-25
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-25
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/23/计算机网络/">
-        <h1 class="post-title archive">
-            计算机网络
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-23
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/23/布局/">
-        <h1 class="post-title archive">
-            布局
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-23
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/23/layout/">
-        <h1 class="post-title archive">
-            AmandaWuyy
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-23
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/22/前端网络安全/">
-        <h1 class="post-title archive">
-            前端网络安全
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-22
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/22/跨域/">
-        <h1 class="post-title archive">
-            跨域
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-22
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/21/map-vuex/">
-        <h1 class="post-title archive">
-            map_vuex
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-21
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/19/刷题2-19/">
-        <h1 class="post-title archive">
-            刷题2-19
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-19
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-        <li class="next"><a href="/archives/page/2/">Older Posts  &rarr;</a></li>
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />

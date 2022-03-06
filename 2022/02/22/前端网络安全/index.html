@@ -13,6 +13,11 @@
     
 
     
+        <meta name="description" content="CSRF：跨站请求伪造：前提：用户登陆过A网站，浏览器保存有cookie。
+引诱用户进入恶意网站，植有访问A网站接口的恶意代码，通过浏览器保存的cookie访问A，冒充用户操作。
+CSRF主要是冒用用户登录凭证发起恶意的增删改，并不会窃取用户隐私信息。
+XSS：跨站脚本攻击：代码注入。注入恶意脚本，"/>
+    
 
     <!--Author-->
     
@@ -21,10 +26,15 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="AmandaWuyy"/>
+        <meta property="og:title" content="前端网络安全"/>
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="CSRF：跨站请求伪造：前提：用户登陆过A网站，浏览器保存有cookie。
+引诱用户进入恶意网站，植有访问A网站接口的恶意代码，通过浏览器保存的cookie访问A，冒充用户操作。
+CSRF主要是冒用用户登录凭证发起恶意的增删改，并不会窃取用户隐私信息。
+XSS：跨站脚本攻击：代码注入。注入恶意脚本，"/>
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +42,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website"/>
+        <meta property="og:type" content="article"/>
     
 
     <!--Page Cover-->
@@ -51,7 +61,7 @@
 
     <!-- Title -->
     
-    <title>Archives - AmandaWuyy</title>
+    <title>前端网络安全 - AmandaWuyy</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -155,168 +165,68 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archives</h1>
+                <div class="post-heading">
+                    <h1>前端网络安全</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-02-22
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2022/03/05/执行上下文/">
-        <h1 class="post-title archive">
-            执行上下文
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-03-05
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="CSRF：跨站请求伪造："><a href="#CSRF：跨站请求伪造：" class="headerlink" title="CSRF：跨站请求伪造："></a>CSRF：跨站请求伪造：</h3><p>前提：用户登陆过A网站，浏览器保存有cookie。</p>
+<p>引诱用户进入恶意网站，植有访问A网站接口的恶意代码，通过浏览器保存的cookie访问A，冒充用户操作。</p>
+<p>CSRF主要是冒用用户登录凭证发起恶意的增删改，并不会窃取用户隐私信息。</p>
+<h3 id="XSS：跨站脚本攻击："><a href="#XSS：跨站脚本攻击：" class="headerlink" title="XSS：跨站脚本攻击："></a>XSS：跨站脚本攻击：</h3><p>代码注入。注入恶意脚本，窃取用户敏感信息比如cookie，sessionId</p>
+<p>存储型：</p>
+<p>通过发帖、评论等将恶意代码提交到数据库，其他用户查看后，服务端返回恶意代码拼接到客户端，通过自执行或用户点击获取cookie或弹出广告。</p>
+<p>反射型：</p>
+<p>带有诱导性链接的邮件。链接的参数中加入恶意代码，诱导用户点击，请求发送到服务端并返回给客户端，客户端执行恶意代码冒充用户或盗取cookie等。</p>
+<p>DOM型：<br>特殊带有恶意代码的url。浏览器解析执行，恶意代码窃取用户数据。</p>
+<p>参考链接：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/125692245">聊聊大前端网络安全那些事</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/2022/02/27/个人项目-显示景点/">
-        <h1 class="post-title archive">
-            个人项目-显示景点
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-27
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/2022/02/25/刷题2-25/">
-        <h1 class="post-title archive">
-            刷题2-25
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-25
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/23/计算机网络/">
-        <h1 class="post-title archive">
-            计算机网络
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-23
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/23/布局/">
-        <h1 class="post-title archive">
-            布局
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-23
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/23/layout/">
-        <h1 class="post-title archive">
-            AmandaWuyy
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-23
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/22/前端网络安全/">
-        <h1 class="post-title archive">
-            前端网络安全
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-22
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/22/跨域/">
-        <h1 class="post-title archive">
-            跨域
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-22
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/21/map-vuex/">
-        <h1 class="post-title archive">
-            map_vuex
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-21
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2022/02/19/刷题2-19/">
-        <h1 class="post-title archive">
-            刷题2-19
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2022-02-19
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-        <li class="next"><a href="/archives/page/2/">Older Posts  &rarr;</a></li>
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />

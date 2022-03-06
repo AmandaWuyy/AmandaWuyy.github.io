@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="二分查找：744：力扣官网while里的判断是否带等号，最后return什么，具体情况具体分析。540153：右边界要不要变，怎么变。34：把两个转为一个。74：综合
+分治：241.法一：分治递归法二：dp
+计算数字字符串：”123” → 123function toNum(str){    let"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="刷题2-25"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="二分查找：744：力扣官网while里的判断是否带等号，最后return什么，具体情况具体分析。540153：右边界要不要变，怎么变。34：把两个转为一个。74：综合
+分治：241.法一：分治递归法二：dp
+计算数字字符串：”123” → 123function toNum(str){    let"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="AmandaWuyy"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>刷题2-25 - AmandaWuyy</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Try to change</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/AmandaWuyy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>刷题2-25</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-02-25
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>二分查找：<br>744：力扣官网<br>while里的判断是否带等号，最后return什么，具体情况具体分析。<br>540<br>153：<br>右边界要不要变，怎么变。<br>34：<br>把两个转为一个。<br>74：<br>综合</p>
+<p>分治：<br>241.<br>法一：分治递归<br>法二：dp</p>
+<p>计算数字字符串：”123” → 123<br>function toNum(str){<br>    let num &#x3D; 0;<br>    let i &#x3D; 0;<br>    while(i &lt; str.length &amp;&amp; !isOperation(str[i])){<br>        num &#x3D; num<em>10 + Number(atr[i]);<br>        i++;<br>    }<br>    return num;<br>}<br>或者直接调用parseInt方法<br>function toNum(str){<br>    if(str.indexOf(‘+’) &#x3D;&#x3D; -1 &amp;&amp; str.indexOf(‘-‘) &#x3D;&#x3D; -1 &amp;&amp; str.indexOf(‘</em>‘) &#x3D;&#x3D; -1){<br>        let num &#x3D; parseInt(str);<br>        return num;<br>    }<br>}<br>或者强制类型转换，调用Number方法<br>function toNum(str){<br>    if(str.indexOf(‘+’) &#x3D;&#x3D; -1 &amp;&amp; str.indexOf(‘-‘) &#x3D;&#x3D; -1 &amp;&amp; str.indexOf(‘*’) &#x3D;&#x3D; -1){<br>        let num &#x3D; Number(str);<br>        return num;<br>    }<br>}<br>Number和parseInt的区别：<br>Number严格，只要有1个字符不能转，比如字母，整个字符串就转为NaN，而parseInt没那么严格，转到不能转的就停。<br>本质上来讲，parseInt解析并返回字符串中的第一个数字，开头和结尾的空格是允许的，也就是说会忽略空格。<br>但如果第一个字符不能被转为数字，就会返回NaN。<br>parseInt的第二个参数，转换数字的基数（二进制、八进制之类，取值2~36）</p>
+<p>95：<br>回溯和分治的区别是？？？<br>回溯有剪枝<br>准确来讲：<br>分治是分解原问题，分解成多个子问题，递归地求解这些子问题，再合并子问题的解。<br>回溯，类似枚举的搜索尝试，当发现已经不满足条件时，就回溯返回，换其他路径。做到剪枝。</p>
+<p>树<br>二叉树<br>满二叉树<br>完全二叉树<br>二叉搜索树&#x2F;二叉排序树&#x2F;二叉查找树：中序遍历为有序<br>平衡二叉树</p>
+<p>搜索：<br>在二维矩阵中搜索，什么时候用BFS，什么时候用DFS？<br>1.如果只是要找到某一个结果是否存在，那么DFS会更高效。因为DFS会首先把一种可能的情况尝试到底，才会回溯去尝试下一种情况，只要找到一种情况，就可以返回了。但是BFS必须所有可能的情况同时尝试，在找到一种满足条件的结果的同时，也尝试了很多不必要的路径；<br>2.如果是要找所有可能结果中最短的，那么BFS回更高效。因为DFS是一种一种的尝试，在把所有可能情况尝试完之前，无法确定哪个是最短，所以DFS必须把所有情况都找一遍，才能确定最终答案（DFS的优化就是剪枝，不剪枝很容易超时）。而BFS从一开始就是尝试所有情况，所以只要找到第一个达到的那个点，那就是最短的路径，可以直接返回了，其他情况都可以省略了，所以这种情况下，BFS更高效。</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/solution/bfszui-duan-lu-jing-wen-ti-bfsdfsde-si-k-ngc5/">作者：macong</a></p>
+<p>BFS：最短路径等最优解问题<br>DFS：可达性问题</p>
+<p>BFS：广度优先搜索，一层一层地遍历：<br>遍历过的不能再次遍历<br>每一层遍历的节点与根节点的距离都相同<br>求解无权图的最短路径：对于先遍历的节点i和后遍历的节点j，有di &lt;&#x3D; dj。所以用BFS第一次遍历到目的节点，所经过的路径为最短路径。<br>bfs需要注意，需要保存已遍历过的节点（marked数组）。<br>队列。<br>力扣1091<br>279.<br>看成图，如果两数之差是一个平方数，则二者之间有边。计算的时候直接从n减下去，就都是有边的，利用bfs找最短边。<br>生成小于n的平方数序列：<br>法一：<br>function generateSqures(n){<br>    let temp &#x3D; Math.floor(Math.sqrt(n));<br>    const re &#x3D; [];<br>    let start &#x3D; 1;<br>    while(start &lt;&#x3D; temp){<br>        re.push(start*start);<br>        start++;<br>    }<br>    return re;<br>}<br>法二：<br>function generateSqures(n){<br>    const re &#x3D; [];<br>    let square &#x3D; 1, diff &#x3D; 3;<br>    while(square &lt;&#x3D; n){<br>        re.push(square);<br>        square +&#x3D; diff;<br>        diff +&#x3D; 2;<br>    }<br>    return re;<br>}<br>127</p>
+<p>DFS: 能够遍历到的节点都是从初始节点可达的<br>注意：<br>栈<br>同样需要对已经遍历过的节点进行标记<br>有递归写法和非递归写法</p>
+<p>695，200：dfs和bfs都可<br>547：邻接矩阵<br>130：没法计算包围，那就把所有和边界相连的都变成另一个<br>417：逆流<br>this指向 &#x3D;&gt; 执行上下文<br>js四种函数调用</p>
+<p>{}定义一个对象，[]定义一个数组。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_20069429/article/details/83267887">js中[]、{}、()区别</a><br>in关键字：<br>(1)for…in 的迭代:<br>for(let i in names){<br>    console.log(names[i])<br>}<br>(2)判断是否是对象的元素&#x2F;属性<br>return ‘tom’ in names</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/memphis-f/p/12073013.html">js中in关键字的使用方法</a><br>in关键字和of关键字的区别：</p>
+<p>for…in 和 for…of 的区别：<br>in遍历的是键名(key)，of遍历的是键值(value)：<br>for(let i in arr){<br>    console.log(arr[i])<br>}<br>for(let value of arr){<br>    console.log(value)<br>}<br>具体来说，in遍历的是可枚举属性，包括原型链上的可枚举属性。<br>但遍历数组时存在一些问题：以任意顺序迭代，遍历顺序有可能不是按照实际数组的内部顺序，且会遍历所有可枚举属性。<br>of（ES6）在可迭代对象（包括Array, Map, Set, String, arguments对象）上创建一个迭代循环，遍历可迭代属性。</p>
+<p>Object.prototype.objCustom &#x3D; function () {};<br>Array.prototype.arrCustom &#x3D; function () {};</p>
+<p>let iterable &#x3D; [3, 5, 7];<br>iterable.foo &#x3D; “hello”;</p>
+<p>for (let i in iterable) {<br>  console.log(i); &#x2F;&#x2F; logs 0, 1, 2, “foo”, “arrCustom”, “objCustom”<br>}</p>
+<p>for (let i of iterable) {<br>  console.log(i); &#x2F;&#x2F; logs 3, 5, 7<br>}<br>可以看到，对于array的不可迭代元属性objCustom、arrCustom和实例属性foo，在循环中都被忽略。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Dax1_/article/details/123053507?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1.queryctrv2&spm=1001.2101.3001.4242.2&utm_relevant_index=4">详解JavaScript中for…in和for…of区别</a></p>
+<p>全排列<br>卡特兰数公式推导：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/chenlong_cxy/article/details/113613203">卡特兰数（Catalan）</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/AmandaWuyy" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

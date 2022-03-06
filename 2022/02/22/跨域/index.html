@@ -235,7 +235,7 @@ WebSocket建立连接时，需要借助http协议。
 <p>（1）普通跨域请求：只需服务器端设置Access-Control-Allow-Origin</p>
 <p>（2）带cookie跨域请求：前后端都需要进行设置</p>
 <p>前端：根据.withCredentials判断是否带有cookie</p>
-<p>服务端：设置Access-Control-Allow-Origin</p>
+<p>服务端：设置Access-Control-Allow-Credentials</p>
 <h3 id="（6）nginx反向代理："><a href="#（6）nginx反向代理：" class="headerlink" title="（6）nginx反向代理："></a>（6）nginx反向代理：</h3><p>修改nginx.conf。</p>
 <pre><code>正向代理：客户端通过代理访问服务端。比如通过vpn访问google。
 架设在客户端和服务端之间，请求转发。

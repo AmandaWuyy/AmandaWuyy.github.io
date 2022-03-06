@@ -276,6 +276,253 @@ class MinHeap{
 //时间复杂度：O(nlogn)，建堆 O(n)，删除 O(klogn)，因为 k < n，所以渐进时间复杂为 O(n+klogn)=O(nlogn)
 //空间复杂度：O(logn)，递归使用栈空间
 
+//队列
+class Queue{
+    constructor(){
+        this.items = [];
+    }
+    //入队
+    enqueue(item){
+        this.items.push(item);
+    }
+    //出队
+    dequeue(){
+        this.items.shift();//shift() ：删除数组的第一个元素,并返回该值
+    }
+    //获取头元素
+    head(){
+        return this.items[0];
+    }
+    //获取尾元素
+    tail(){
+        return this.items[this.items.length-1];
+    }
+    //判空
+    isEmpty(){
+        return !this.items.length;
+    }
+    //大小
+    size(){
+        return this.items.length;
+    }
+    //清空
+    clear(){
+        this.items = [];
+    }
+}
+
+//BFS 返回目标节点深度
+// 数据源
+let root = {
+    key: 1,
+    children: [
+        {
+            key:2,
+        },
+        {
+            key:3,
+            children:[
+                {
+                    key:4,
+                }
+            ]
+        }
+    ]
+} 
+//BFS
+function bfs(root, target){
+    let queue = new Queue();
+    let step = 0; //根节点到目标节点之间的深度
+    queue.enqueue(root); //根节点入队
+    //遍历队列
+    while(!queue.isEmpty()){
+        step += 1;
+        let len = queue.size();
+        //分层遍历，没有目标元素则删除该层元素，继续遍历下一层
+        while(len){
+            len--;
+            let cur = queue.head();  //获取队首元素
+            if(target == cur.key){
+                return step;
+            }
+            //如果不是，将下一层节点加入到队列
+            if(cur.children && cur.children.length){
+                cur.children.map(item => {
+                    queue.enqueue(item);
+                })
+            }
+            queue.dequeue(); //将遍历过的节点删除
+        }
+    }
+}
+//用数组来写，一个模板
+function bfsShorteststep(start, n,target){
+    //一些边界判断
+    if(越界){
+        return -1;
+    }
+    //队列
+    const queue = [];
+    //记录是否已计算过的marked标记
+    const marked = new Array(n).fill(false);
+    //入队，同时mark一下已入队
+    queue.push(start);
+    marked[start] = true;
+    //步数
+    let step = 0;
+    while(queue.length){
+        //进层了，步数+1
+        step += 1;
+        //这里的len用来记录本层节点数，因为会不断放入下一层的节点，len保证只循环计算本层的。
+        let len = queue.length;
+        while(len){
+            len--;
+            //头节点出队
+            let cur = queue.shift();
+            //终点判断
+            if(cur == target) return step;
+            //一些边界判断
+            if(越界){
+                continue;
+            }
+            //把下一层的节点放进去
+            queue.push(下一层)
+            //已经放进去的都标记一下
+            marked[下一层] = true;
+        }
+    }
+}
+// bfs需要注意，改变已遍历状态以保存已遍历过的节点
+
+//栈
+class Stack{
+    constructor(){
+        this.items = [];
+    }
+    //入栈
+    push(item){
+        this.items.push(item);
+    }
+    //弹出栈顶元素
+    pop(){
+        return this.items.pop();
+    }
+    //返回栈顶元素
+    peek(){
+        return this.items[this.items.length - 1];
+    }
+    //判断栈是否为空
+    isEmpty(){
+        return !this.items.length;
+    }
+    //个数
+    size(){
+        return this.items.length;
+    }
+    //清空
+    clear(){
+        this.items = [];
+    }
+}
+//DFS 递归写法
+//m行n列
+function dfs(grid, i, j){
+    //边界判断
+    if(越界){
+        return; 
+    }
+    //记录访问状态
+    grid[i][j] = 0;
+    for(let d of direction){
+        let newx = i+d[0], newy = j+d[1];
+        if(newx < 0 || newy < 0 || newx >= m || newy >= n){
+            dfs(grid, i+d[0], j+d[1]);
+        }
+    }
+    return area;
+} 
+//关于this指向的四种调用场景 
+var obj = {
+    a: 1,
+    b: function(){
+        console.log(this);
+    }
+} 
+//作为对象调用，指向该对象obj
+obj.b()
+//作为函数调用，指向全局对象window
+var b = obj.b; 
+b()
+//作为构造函数调用，指向当前实例对象
+var b = new Fun()
+//作为call与apply调用，指向当前object
+obj.b.apply(object, [])
+//箭头函数中被调用，箭头函数的this永远指向上级作用域的this
+
+//call改变this指向
+var Person = {
+    name:"lixue",
+    age:21
+}
+function fn(x,y){
+    console.log(x+","+y);
+    console.log(this);
+}
+fn("hh",20);  //this指向全局
+fn.call(Person,"hh",20);  //this指向Person
+fn.apply(Person,["hh", 20]);  //this指向Person
+
+//字典
+class Dictionary{
+    constructor(){
+        //创建一个空的实例对象
+        this.items = {};
+    }
+    //判断某个键值存在于这个字典中
+    has(key){
+        return key in this.items;
+    }
+    //通过key来移除对应的value
+    delete(key){
+        if(this.has(key)){
+            delete this.items[value];
+            return true;
+        }
+        return false;
+    }
+    //查找特定的项
+    get(key){
+        return this.has(key) ? this.items[key] : undefined;
+    }
+    //以数组形式返回所有value
+    values(){
+        let values = [];
+        for(let k in this.items){
+            if(this.has(k)){
+                values.push(this.items[k]);
+            }
+        }
+        return values;
+    }
+    //返回所有key
+    keys(){
+        return Object.keys(this.items);
+    }
+    //items属性的输出
+    getItems(){
+        return this.items;
+    }
+    //移除所有
+    clear(){
+        this.items = {};
+    }
+    //返回元素数量
+    size(){
+        return Object.keys(this.items).length;
+    }
+}
+
+
                 
             </div>
 
