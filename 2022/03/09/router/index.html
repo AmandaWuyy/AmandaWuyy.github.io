@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="$是干嘛的？vue一些有用的实例属性与方法，和用户定义的属性区分开来。
+一、router 和 route的区别？
+$router对象是全局路由的实例，.push()跳转页面（和等价），会向history栈添加一个新的记录，返回上一页可以看到之前的页面。.go()页面路由跳转，前进或后退，.go(-1"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="router"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="$是干嘛的？vue一些有用的实例属性与方法，和用户定义的属性区分开来。
+一、router 和 route的区别？
+$router对象是全局路由的实例，.push()跳转页面（和等价），会向history栈添加一个新的记录，返回上一页可以看到之前的页面。.go()页面路由跳转，前进或后退，.go(-1"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="AmandaWuyy"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>router - AmandaWuyy</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Try to change</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/AmandaWuyy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>router</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-03-09
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>$是干嘛的？<br>vue一些有用的实例属性与方法，和用户定义的属性区分开来。</p>
+<p>一、router 和 route的区别？</p>
+<p>$router对象是全局路由的实例，<br>.push()跳转页面（和<router-link :to="">等价），会向history栈添加一个新的记录，返回上一页可以看到之前的页面。<br>.go()页面路由跳转，前进或后退，.go(-1)返回上一页<br>.replace()替换当前页面，不会入history栈。</p>
+<p>$route对象是当前路由。包括当前路径，参数，query对象等。</p>
+<p>所以一般传参的时候会看到，a页面this.$router.push(…query:{..})，b页面接收this.$route.query.id</p>
+<p>二、query和params传参区别：<br>query刷新页面，参数不会消失，而params刷新页面，参数会消失。<br>query的参数会显示在地址栏，params不会。<br>query配合name 或 path都可以，params只能配合name使用。</p>
+<p>因为刷新消失，params传参时，router-index.js中路由的path要改成“&#x2F;login&#x2F;:id”动态路由的形式，这样就会把接收到的参数替换为地址，比如 params:{id: 3},那么最终访问的地址是…&#x2F;login&#x2F;3</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46217225/article/details/119808510?spm=1001.2014.3001.5501">Vue路由传参详解（params 与 query）</a></p>
+<p>Vue Router 中 router-link和router-view哪里来的？<br>在全局注册Vue.use(VueRouter)的时候，执行相应的install方法，其中定义了router-link和router-view，通过Vue.mixin混入到每个组件beforeCreate()</p>
+<p>三、SPA<br>SPA：<br>单页应用，通过重写当前页面来与用户交互，避免页面之间的切换打断用户体验。<br>在单页应用中，根据需要动态加载适当的资源。<br>MPA：<br>多页应用，每个页面都是独立的，当访问另一个页面时，需要重新加载html，css，js文件。<br>区别：<br>SPA：一个主页面和多个页面片段 &#x3D;&gt; 局部刷新 &#x3D;&gt; 页面切换速度快，用户体验好 &#x3D;&gt; 数据传递容易 &#x3D;&gt; 难实现SEO搜索引擎优化，可用SSR实现</p>
+<p>MPA：多个主页面 &#x3D;&gt; 整页刷新 &#x3D;&gt; 页面切换加载资源，速度慢 &#x3D;&gt; 通过url、localstorage、cookie等数据传递 &#x3D;&gt; 容易实现SEO</p>
+<p>但SPA首次渲染速度相对较慢。</p>
+<p>四、SPA的两种实现：<br>SPA的核心是 前端路由。<br>前端路由的核心是 改变视图的同时不会向后端发送请求。</p>
+<p>前端路由：通过js代码，处理不同url和不同组件模块的对应关系。<br>这些url在后端获取的都是整个页面资源，而在浏览器端，js通过判断不同的url，渲染不同的组件模块。<br>因此：SPA 切换组件不刷新页面；url与组件一一对应；浏览器的前进后退按钮有效。</p>
+<p>hash模式和history API模式<br>hash：通过url中的hash部分（#后的锚点值）来映射不同的组件，改变hash，也不会向服务器重新请求页面，也不会刷新页面，但会向浏览器的历史记录栈压入新的记录，从而实现浏览器的前进后退按钮。<br>history API：通过history.replaceState 和 history.pushState改变历史记录和url</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_18369669/article/details/106672046">SPA的两种实现方式（hash 及 history API）</a></p>
+<p>补充：什么是SSR？<br>服务端渲染，在服务端起一个node应用，请求发送过来的时候，先拦截异步js请求，提前将数据填充到html页面中返回浏览器。这样爬虫抓到的页面就是带数据的。vue用Nuxt.js框架。</p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1794248">SPA（单页应用）首屏加载速度慢怎么解决？</a></p>
+<p>为什么首屏加载速度慢？<br>首屏时间：浏览器从响应用户输入网址，到首屏内容渲染完成 的时间。<br>网络延时、资源文件体积大、有重复发送请求、加载脚本时，渲染内容堵塞。</p>
+<p>如何优化首次渲染速度慢？<br>主要包括两部分，资源加载 的优化 和 页面渲染 的优化<br>针对资源文件体积大：<br>（1）可以减小入口文件体积，比如利用懒加载，把不同路由对应的组件分割成不同的代码块，被请求时单独打包。vue-router配置的时候，动态加载路由，以函数的形式加载路由，只有解析到相应路由时，加载相应组件。</p>
+<pre><code>routes:[
+    path: &#39;xx&#39;,
+    name: &#39;xx&#39;,
+    component: () =&gt; import(&#39;...&#39;)
+]
+</code></pre>
+<p>什么是懒加载？<br>延迟加载一些非关键资源，按需加载。</p>
+<p>（2）对于减少http请求次数：静态资源本地缓存：对于后端返回的资源，采用http缓存，或Service Worker离线缓存。前端合理利用localStorage。<br>浏览器缓存相关<br>浏览器存储相关</p>
+<p>（3）UI框架按需加载：比如不要import整个组件库，而是用到什么ui组件就引入什么ui组件。</p>
+<p>（4）避免组件重复打包：webpack配置</p>
+<p>（5）图片资源压缩：比如使用在线图标</p>
+<p>（6）使用SSR</p>
+<p>vue中数据传递<br>（1）父组件向子组件传值：props<br>（2）子组件向父组件传值：this.$emit<br>（3）路由传值：query和params，要在created()生命周期获取值<br>（4）通过localStorage或sessionStorage存储数据<br>（5）vuex：全局状态管理</p>
+<p>五、vue-router的两种路由模式：<br>vue为了构建SPA单页面应用，引入前端路由系统，其核心在于，改变视图的同时不会向后端发出请求。<br>hash模式：#符号，比如 <a target="_blank" rel="noopener" href="http://www.abc.com/#/hello%EF%BC%8C">http://www.abc.com/#/hello，</a> hash的值为 #&#x2F;hello。hash虽然出现在url中，但不会被包含在http请求中，改变hash不会重新加载页面。</p>
+<p>history模式：可以对历史记录栈进行修改，执行修改时，虽然改变了当前url，但不会立即向后端发送请求。</p>
+<p>选择mode类型后，程序会根据不同的mode类型创建不同的history对象：<br>hash -&gt; HashHistory：push和replace方法，push将新的路由添加到浏览器访问历史的栈顶，replace替换当前栈顶的路由。<br>因为hash发生变化的url都会被浏览器记录（历史访问栈）下来，从而你会发现浏览器的前进后退都可以用了。这样一来，尽管浏览器没有请求服务器，但是页面状态和url一一关联起来。</p>
+<p>history -&gt; HTML5History：不止可以读取历史记录栈，还可以修改：pushState() 和 replaceState()。back,forward,go切换页面</p>
+<p>abstract -&gt; AbstractHistory</p>
+<p>实现：<br>hash：<br>利用了window.onhashchange事件，当hash改变，自动调用hashchange的监听事件，得到改变后的url。<br>history：<br>通过history API的pushState和replaceState方法，替换url而不刷新页面。不会向后端发送请求，但一旦刷新，就会真正发送请求。</p>
+<p>history的优势：<br>pushState设置的url可以是同源的任意url，而hash只能修改#后面的部分；<br>pushState设置的新url可以与当前url一模一样，而hash必须不一样才会把记录添加到记录栈中。</p>
+<p>history的缺点：刷新的时候，浏览器会向服务器发送请求，hash模式下仅#前的内容会包含在请求中，因此即便后端没有对url全覆盖，也不会轻易返回404，但history，就是当前url发送请求，如果后端没有对该url的路由处理，会返回错误。<br>解决：可以在服务端增加一个覆盖所有情况的候选资源，如果出现没配置的url，返回同一个index.html页面，避免404不好看。</p>
+<p>总结：<br>vue &#x3D;&gt; SPA &#x3D;&gt; 前端路由 &#x3D;&gt; url和组件一一对应 &#x3D;&gt; hash模式和history API模式</p>
+<p>hash：通过url中的hash部分（#后的锚点值）来映射不同的组件，不会发送http请求但会入栈，因此能实现浏览器的前进后退。通过hashchange监听，获取改变后的url。如果刷新，发送请求只有hash前的部分，因此不会轻易返回404.</p>
+<p>history API：通过pushState和replaceState方法，可以对历史记录栈进行修改，虽然改变了当前url，但不会立刻向后端发送请求。需要和后端的配合，当刷新的时候，会发送请求，地址栏的url，因此容易404.要么前后端配置好，前端的url和后端的路由处理一致，要么将不存在的路径都重定向到某个页面。<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/337073166">Vue-router 中hash模式和history模式的区别</a></p>
+<p>vue怎么实现重定向?<br>SPA下，redirect。或者导航守卫，如果没登陆，就router.push()跳转到相应页面。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/AmandaWuyy" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

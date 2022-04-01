@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="vue双向绑定原理：数据劫持 结合 发布者订阅者模式：vue2 通过 Object.defineProperty() 劫持各个属性的 setter、getter;vue3 通过 ES6 Proxy 的方式实现数据劫持。在数据变动时，发布消息给订阅者，触发相应的监听回调。
+首先，什么是数据劫持？简述j"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="vue双向绑定"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="vue双向绑定原理：数据劫持 结合 发布者订阅者模式：vue2 通过 Object.defineProperty() 劫持各个属性的 setter、getter;vue3 通过 ES6 Proxy 的方式实现数据劫持。在数据变动时，发布消息给订阅者，触发相应的监听回调。
+首先，什么是数据劫持？简述j"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="AmandaWuyy"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>vue双向绑定 - AmandaWuyy</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Try to change</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/AmandaWuyy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>vue双向绑定</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-03-07
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>vue双向绑定原理：<br>数据劫持 结合 发布者订阅者模式：<br>vue2 通过 Object.defineProperty() 劫持各个属性的 setter、getter;<br>vue3 通过 ES6 Proxy 的方式实现数据劫持。<br>在数据变动时，发布消息给订阅者，触发相应的监听回调。</p>
+<p>首先，什么是数据劫持？<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/helloworldhelloweb/p/15647836.html">简述js数据劫持</a><br>在访问或修改对象的某个属性时，通过一段代码拦截这个行为，进行额外的操作或修改返回结果。</p>
+<p>经典应用： vue双向数据绑定<br>数据劫持常见实现思路：<br>    （1）利用 Object.defineProperty 设置 setter、getter<br>    （2）利用 ES6 新增的 proxy 设置代理<br>具体实现：<br>（1）defineProperty<br>首先定义一个对象 obj ，定义相应的监听函数 observer(obj) ，在其中调用 defineReactive 方法设置set和get，defineReactive 方法内部调用 Object.defineProperty，其中get() 返回当前值，set(newval) 更新对应值。</p>
+<p>这样就初步实现了数据劫持，测试：</p>
+<pre><code>observer(obj)
+obj.name = &#39;haha&#39;  //修改obj的属性，控制台打印输出 “数据更新了”
+</code></pre>
+<p>以上已经实现设置obj的属性的时候，被监听到，并且可以去执行一些动作了。但是，如果对象里面嵌入了对象呢？比如：</p>
+<pre><code>obj = &#123;
+    name: &#39;Bill&#39;,
+    age: &#123;
+        old: 60
+    &#125;
+&#125;
+</code></pre>
+<p>这时候再次测试，控制台无输出，额外动作未被执行<br>为解决上述问题，对监控的obj进行递归迭代处理，在 defineReactive 里加了一步 对监控的obj进行迭代递归处理：<br>    observer(value) &#x2F;&#x2F;如果属性的value也是个对象的话，进一步迭代递归</p>
+<p>但是，当obj为数组时，无法在，通过内置方法（比如push）改变数组时，触发console.log行为<br>重写数组相关方法</p>
+<p>关于Object.defineProperty(obj, key, descriptor)：<br>什么是Object.defineProperty？<br>对象是由多个 k-v 对组成的集合，每个属性对应任意类型的值。定义了一个新的对象，可以用 Object.defineproperty 定义新属性或修改原有的属性。<br>obj：要在其上定义属性的对象<br>key：要定义或修改的属性的名称<br>descriptor：将被定义或修改的属性描述符。其中的存取描述符：<br>get：一个给属性提供getter的方法，如果没有getter则为undefined。当访问该属性时，该方法会执行，执行时没有参数传入，但是会传入this对象。<br>set：一个给属性提供setter的方法，如果没有setter则为undefined。当属性值修改时，触发执行该方法，接受唯一参数，即该属性新的参数值。</p>
+<p>（2）ES6 Proxy<br>一个插播：关于 typeof 和 Object.prototype.toString.call() 方法</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39927080/article/details/79203002">Object.prototype.toString.call()方法及面试应用</a></p>
+<p>typeof判断数据类型，只能：number，string，undefined，boolean，object,function，而对于object中的 对象、数组，不会细分。Object.prototype.toString.call(o) 可以返回 o 具体为数组、对象。</p>
+<p>Object.prototype 上原生的 toString 和 toString方法的区别？</p>
+<p>因为 toString 是 Object 的原型方法，Array等类型的 toString 重写了。根据原型链的知识，不同的对象类型调用toString方法时，调用的是对应的重写之后的toString方法（返回字符串…），而不会去调用Object上原型toString方法（返回对象的具体类型），所以采用obj.toString()不能得到其对象类型，只能将obj转化为字符串类型。</p>
+<p>为什么要.call(o)？<br>call将该方法（Object.prototype.toString）的this指向了对象o，也就是o调用了Object的toString方法。</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7dcb75bf87ba">JavaScript数据劫持的两种方式</a></p>
+<p>什么是发布者订阅者模式？<br>一个例子：比如商店，会员问什么时候有活动，店员回答，这重复且麻烦。如果记录所有会员的邮箱，当有活动的时候统一发送邮件。这里，店员就是发布者，会员就是订阅者，发邮件就是发布-订阅模式。</p>
+<p>也就是说，当一个对象（发布者）的状态发生改变时，所有依赖它的对象（订阅者）都会得到通知。</p>
+<p>多个订阅者同时监听一个对象，当这个对象发生变化时就会执行一个发布事件，通过这个发布事件通知到所有订阅者，使它们能够改变自己对对象依赖的部分状态。</p>
+<p>图见<a target="_blank" rel="noopener" href="https://blog.csdn.net/alisa_lisa/article/details/88537159">JS中的发布-订阅者模式</a></p>
+<p>例子1：dom事件<br>事实上在我们普通的编程中就应用过该模式</p>
+<pre><code>document.body.addEventListener(&#39;click&#39;, function()&#123;
+    console.log(&#39;test&#39;)
+&#125;, false);
+</code></pre>
+<p>监听用户动作，但是我们并不知道用户什么时候点击。所以我们订阅了click事件，当body节点被点击时，发布者body就向订阅者（整个这段程序就是一个订阅者）发布这个消息。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lynnwonder6/article/details/89790759">JavaScript发布者-订阅者模式</a></p>
+<p>再看一下双向数据绑定的原理：observer（观察者），通过Object.defineProperty（vue3：proxy）给每个需要观察的对象添加getter和setter方法，只要该对象数据发生变化那么就触发setter方法了就会通知Watcher订阅者。watcher有多个，由消息订阅器Dep统一管理。Compile负责编译模板，将模板中的变量转换成数据渲染出来，同时将每个指令对应的节点绑定更新函数，转化成订阅者，一旦数据变化就会收到通知，更新视图。MVVM作为数据绑定的入口，整合了Observer Watcher Compile三者。通过Observer监听自己model数据变化，Compile解析模板指令，利用Watcher搭起Observer和Compile之间的通信桥梁，达到数据变化–视图更新，视图更新–数据变化的效果。</p>
+<p>或者说是观察者模式，不是发布订阅。</p>
+<p>主要就是理解这张图：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9c7169987b2f">面试官：VUE双向数据绑定原理&amp;&amp;实现，你知否？</a></p>
+<p>（1）observer（观察者）：<br>对vue的data中定义的每个属性循环通过 Object.defineProperty() 实现数据劫持（vue3是通过ES6的proxy）。或者说，对被监听数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter，这时，当给这个对象赋值，就会触发setter，进而监听到数据变化。然后通知 watcher，watcher会触发它的update方法，更新视图。</p>
+<p>（2）Complie（指令解析器）：<br>对节点的解析和绑定。遍历节点，初始化模板数据，初始化watcher。<br>先获取dom元素，因为对dom处理比较频繁，可以先建一个fragment片段，将需要解析的dom节点存入fragment片段。<br>遍历各个节点，对含有相关指定的节点进行特殊处理,将初始化的数据初始化到视图中,生成订阅器并绑定更新函数。<br>指令的解析、初始化、编译三个过程。</p>
+<p>（3）watcher（订阅者）：<br>连接 observer 和 complie 的桥梁，能够订阅并收到每个属性变动的通知，执行相应的回调函数，更新视图。只更新自己的指令对应的数据，存在 Dep 中。</p>
+<p>（4）Dep（消息订阅器）：<br>收集watcher，类似数组容器。当属性值数据变动，触发相应notify，调用对应watcher的update方法。</p>
+<p>（5）MVVM入口函数：<br>整合以上。</p>
+<p>我们再说回MVVM：<br>Model-View-ViewModel：<br>Model：数据模型（data，pros，computed等部分）（即将渲染到页面的一些数据的集合）<br>View：UI组件（template部分）<br>ViewModel：同步 Model 和 View 的对象，连接二者的桥梁。</p>
+<p>为什么要 mvvm？<br>大量的dom操作使页面渲染性能降低，加载速度变慢，影响用户体验。<br>当model发生变化，开发者需要主动更新到view，当用户操作使数据模型发生变化，开发者需要将变化的数据同步到model，这样的工作繁琐且难以维护。<br>或者说，从mvc讲起：<br><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html">MVC，MVP 和 MVVM 的图示</a><br>mvc单向数据流：view传送指令到controller，controller完成业务逻辑后，要求model改变状态，model将新的数据发送到view，用户得到反馈。<br>在接受用户指令时，有两种方式：<br>一种是通过view接收指令，传递给controller。<br>另一种直接通过controller接收指令。</p>
+<p>mvp：model-view-presenter<br>view和presenter，presenter和model 之间的通信，都是双向的。model和view不发生联系，通过presenter传递。这里的presenter非常厚，所有的逻辑都部署在这里，而view层非常薄，不部署任何业务逻辑。</p>
+<p>mvvm：<br>数据和视图的双向绑定，vm作为二者之间的桥梁，处理他俩的变化并反应到对方之上。<br>基本与mvp一致，区别是，采用双向绑定，随着视图变化，系统自动修改m的数据，反之亦然。而mvp的presenter是通过手动写方法来调用或修改v和m。</p>
+<p>三个概念：<br>Observer：数据监听器<br>Compile：指令解析器<br>Watcher：订阅者</p>
+<p>其实 view &#x3D;&gt; model：是通过dom事件监听就可以实现，而 model &#x3D;&gt; view ： 数据绑定。<br>通过数据劫持和发布订阅，数据劫持各个属性的setter和getter，当数据变化时，watcher触发相应的监听回调来渲染视图。<br>Observer 用于监听数据变化，如果数据发生改变，不论是在 View 层还是 Model 层， Oberver 都会知道，然后告诉 Watcher。</p>
+<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7743.html">MVC、MVP、MVVM的区别和联系（精讲版）</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_58032613/article/details/122735346">Vue的双向数据绑定</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/AmandaWuyy" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

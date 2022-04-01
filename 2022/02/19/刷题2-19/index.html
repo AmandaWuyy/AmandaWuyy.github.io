@@ -189,23 +189,54 @@
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/hide/">#hide</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>js Array对象：<br>取部分元素：[].slice(start,end)<br>删除元素：[].splice(位置, 个数)<br>添加元素：[].splice(位置, 0, 添加的元素)<br>在头部添加元素：[].unshift()(返回新的长度)<br>删除头部第一个元素：[].shift()(返回被移除的元素)<br>移除最后一个元素：[].pop()(返回被移除的元素)<br>创建二维数据 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/lhs-fight/p/14212969.html">参考</a>：<br>new Array(n).fill(0).map(() &#x3D;&gt; new Array(n).fill(0))    &#x2F;&#x2F;n行n列个0</p>
+                <p>js Array对象：<br>取部分元素：[].slice(start,end)<br>删除元素：[].splice(位置, 个数)<br>添加元素：[].splice(位置, 0, 添加的元素)<br>在头部添加元素：[].unshift()(返回新的长度)<br>删除头部第一个元素：[].shift()(返回被移除的元素)<br>移除最后一个元素：[].pop()(返回被移除的元素)<br>arr.map(fun)：原始数组按顺序依次处理元素，调用fun，返回一个新数组，调用fun后的值。<br>Array.from()方法：浅拷贝的数组。<br>stra.localeCompare(strb)：比较字符串，字典序（字符的 Unicode 编码）。<br>if(stra.localeCompare(strb) &lt; 0): stra &lt; strb<br>if(stra.localeCompare(strb) &gt; 0): stra &gt; strb<br>if(stra.localeCompare(strb) &#x3D; 0): stra &#x3D; strb<br>创建二维数据 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/lhs-fight/p/14212969.html">参考</a>：<br>new Array(n).fill(0).map(() &#x3D;&gt; new Array(n).fill(0))    &#x2F;&#x2F;n行n列个0</p>
+<p>Map和Array的转换：</p>
+<pre><code>//Map转Array：
+const array = Array.from(map);
+//Array转Map：
+const map = new Map(array);
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39607474/article/details/111039147">注意</a>：Map转换成数组是一个二维数组。同理要想一个数组能够转换成Map，该数组必须是二维数组。</p>
+<p>关于Map：<br>两种迭代方式：<br>（1）for…of 迭代<br>（2）forEach() 迭代<br>forEach中只有一个参数的时候，该参数是value；<br>forEach中如果有两个参数的时候，需要注意它跟for…of的区别，forEach中的两个参数分别是value和key，它跟for…of是反的。</p>
+<p>String:<br>str.trim()：同时清除左右空格<br>str.trimStart()：清除开头的空格（左边）<br>str.trimEnd()：清除尾部的空格（右边）<br>str.indexOf(‘a’)：返回a首次出现的位置<br>str.slice(start, end)：返回特定元素[start, end)</p>
 <p>Set：<br>const set &#x3D; new Set();<br>添加元素：set.add(元素)</p>
 <p>js string对象：<br>a元素首次出现的位置，没有-1：””.indexOf(‘a’)<br>a元素最后出现的位置：””.lastIndexOf(‘a’)</p>
+<p>object:<br>Object.keys(arr)：返回arr对象上所有可枚举的属性名，一个数组，元素是string类型。。<br>delete obj.p &#x2F;&#x2F; true：删除对象obj的属性p，删除成功后返回true。当该属性有configurable设置，也就是不可删除时，返回false<br>‘p’ in obj &#x2F;&#x2F; true：对象obj是否包含属性p，不能识别是自身的还是继承的<br>Object.hasOwnProperty(key)：判断对象是否包含特性属性key，只有自身的，继承的不算<br>for…in..：遍历所有可迭代属性，包括继承的。当想只遍历自身的，不遍历继承的。结合hasOwnProperty使用。</p>
 <p>js：<br>遇到除法一定记得向下取整。</p>
 <p>js字符(字母)与ASCII码转换：<br>‘a’.charCodeAt()    &#x2F;&#x2F;97<br>String.fromCharCode(97)    &#x2F;&#x2F;a<br>&#x2F;&#x2F;大写字母A 到Z 的值是从65 到90;<br>&#x2F;&#x2F;小写a到z 是从97 到 122;</p>
+<p>关于双指针：<br>注意用js写的话，要单独i++,j–<br>345：<br>680：<br>524:</p>
+<p>关于排序：<br>像这种排序的其实很多可以用js自带的sort实现，不过为了熟悉数据结构的理解，建议两种方式（sort&#x2F;堆数据结构）都试试。<br>堆：<br>215：<br>除法不要忘记：Math.floor()<br>建堆的题注意空间复杂度。<br>反向思考。要求前k大的，不一定建大顶堆，因为可能超空间内存，可以建小顶堆，边insert边pop，最终留下的就是前k大的。</p>
+<p>关于排序：<br>347、451:<br>为什么和215不同，这里建堆的时候shiftUp和shiftDown需要.value？<br>因为这里在使用MinHeap的时候，插入的是{ value, key }，那么在比较大小的时候，设定用value值来比较。<br>因此，在实际使用过程中，数据结构根据题意动态调整。<br>Map类的题，在堆中插入{ value, key }会方便一点。</p>
+<p>75:<br>灵活思考。</p>
+<p>关于贪心：<br>每次操作，局部最优；最终结果，全局最优。<br>435:<br>感觉逻辑是对的，只是超时，通过55&#x2F;58：<br>（1）按头排序：从小到大头排序，头同，从小到大尾排序。<br>头同，则尾大删。<br>头不同，若新头&lt;原尾，则尾大删。<br>（2）按尾排序：从大到小尾排序，尾同，从小到大头排序。<br>尾同，则头小删。<br>尾不同，若新尾&lt;原头，则头小删。<br>反向思考。求最多的不重叠区间需要移除区间的个数，先求不重叠区间，再减。</p>
+<p>435、452：<br>扎气球的，就按计算最多的不重叠区间做。<br>为什么尾排序？因为要计算最多的不重叠区间，区间的结尾最重要，结尾越小，留给后面的空间越大，越有可能不重叠。</p>
+<p>406:<br>排序的时候，规则是尽量往结果序列靠拢。</p>
 <p>动态规划：<br>状态 + 状态转移方程。<br>某个状态只与它前面出现的状态有关，而独立于后面的状态。</p>
 <p>入门题：用数量最少的面值1，3，5的硬币凑够i元：<br>d(i) &#x3D; min{ d(i-Vj) + 1 }, 其中i-Vj &gt;&#x3D; 0。Vj表示第j个硬币的面值。</p>
 <p>经典问题：LIS(Longest increasing subsequence) 最长非降子序列：<br>d(i) &#x3D; max{ d(j)+1, 1 }, 其中j &lt; i，A[j] &lt; A[i]。<br>d(i)：把i前面各个子序列中，最后一个数不大于A[i]的序列+1的长度中的最大长度。如果不满足最后一个数&lt;&#x3D;A[i]，那么只能为1。</p>
 <p>参考链接：<br><a target="_blank" rel="noopener" href="http://www.360doc.com/content/13/0601/00/8076359_289597587.shtml">动态规划：从新手到专家</a></p>
 <p>关于贪心：</p>
-<p>买股票问题：<br>121：<br>记录最小价格min，将其作为买入价格，当前价格为卖出价格计算pro。不断更新min和pro。<br>动态规划解法：<br>d(i) &#x3D; max{ d(i-1), A[i]-min };</p>
+<p>买股票问题：<br>121：<br>记录最小价格min，将其作为买入价格，当前价格为卖出价格计算pro。不断更新min和pro。<br>动态规划解法：<br>d(i)的值要么是0，要么是今天的价格-今天之前里面最小价格为买入值。最终返回所有d里面的最大值。<br>或者边走边比较，0，今天的价格-今天之前里面最小价格，前一天的d，哪个大保存哪个，那么最终最后一个就是最大值。<br>d(i) &#x3D; max{ d(i-1), A[i]-min };</p>
 <pre><code>d[i] = Math.max(d[i-1], A[i] - min)
 d[i] = Math.max(d[i], 0)    //提高runtime
 return d[A.length-1]

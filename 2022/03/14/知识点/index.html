@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="一、js相关：数据类型let const var变量声明提升执行上下文改变this指向的三个方法底层实现浅拷贝 深拷贝闭包原型继承
+promiseasync await异步编程js单线程，浏览器多线程事件冒泡 event loop
+二、ES6相关：map，setfor..of 和 for..in
+三"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="知识点"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="一、js相关：数据类型let const var变量声明提升执行上下文改变this指向的三个方法底层实现浅拷贝 深拷贝闭包原型继承
+promiseasync await异步编程js单线程，浏览器多线程事件冒泡 event loop
+二、ES6相关：map，setfor..of 和 for..in
+三"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="AmandaWuyy"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://example.comimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>知识点 - AmandaWuyy</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Try to change</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/AmandaWuyy">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>知识点</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2022-03-14
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/hide/">#hide</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>一、js相关：<br>数据类型<br>let const var<br>变量声明提升<br>执行上下文<br>改变this指向的三个方法底层实现<br>浅拷贝 深拷贝<br>闭包<br>原型<br>继承</p>
+<p>promise<br>async await<br>异步编程<br>js单线程，浏览器多线程<br>事件冒泡 event loop</p>
+<p>二、ES6相关：<br>map，set<br>for..of 和 for..in</p>
+<p>三、网络相关：</p>
+<p>输入网址到返回请求的过程</p>
+<p>计算机网络<br>http方法，post和get<br>网络安全</p>
+<p>缓存：<br>h5离线缓存<br>浏览器缓存：强缓存 协商缓存<br>浏览器存储：cookie sessionStorage localStorage indexDB</p>
+<p>跨域<br>ajax，axios</p>
+<p>四、vue相关：<br>生命周期<br>vue双向绑定<br>mvvm<br>v-bind和v-model<br>v-if和v-show<br>v-if和v-for<br>vue-router：hash，history<br>虚拟dom<br>key<br>数据传递<br>vuex</p>
+<p>五、css相关：<br>居中<br>画圆<br>flex布局</p>
+<p>一、js相关：</p>
+<ol>
+<li>数据类型<br>(1) 基本数据类型：String, Number, Boolean, Undefined(用var,let声明但没初始化), Null(空对象指针，一个表示空的对象，typeof返回object)<br>(2) 复杂数据类型（引用数据类型）：Object(Array, function, object)</li>
+</ol>
+<p>补充：<br>(1) Undefined 和 Null：<br>&#x3D;&#x3D; 返回 true，&#x3D;&#x3D;&#x3D; 返回 false：&#x3D;&#x3D; 会先类型转换（二者都会被转为false），再比较<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/nelson-hu/p/7922731.html">js中&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;区别</a></p>
+<p>(2) 栈和堆：<br>栈：自动分配内存空间，会自动释放。存储基础变量（存值）和一些对象的引用变量（存地址）。<br>堆：动态分配的内存，不会自动释放。<br>一个方法执行时，会有自己的栈内存，随着方法的执行完毕而销毁。<br>在程序中创建一个对象时，这个对象保存到运行时数据区，即堆内存，以便反复使用。堆内存中的对象不会随着方法的结束而销毁，因为即使方法结束，该对象可能还在被另一个引用变量引用着。只有当没有任何引用变量引用它时，系统的垃圾回收机制才会收回它。<br>基本数据类型存储在栈，具体的值存在栈；复杂数据类型存在堆，地址存在栈。</p>
+<ol start="2">
+<li>针对object这种引用数据类型：深拷贝和浅拷贝</li>
+</ol>
+<p>其实浅拷贝和深拷贝都创建一个新的对象，但在复制对象属性的时候，浅拷贝只复制指针，不复制对象本身，新旧共享内存，深拷贝创造另外一个一模一样的对象，对应不同的地址，修改一个，不会影响另一个。<br>(1) 浅拷贝：通用循环、Object.assign(对象属性是基本数据类型，深拷贝，复杂数据类型，浅拷贝)、Array.slice()和.concat(), 拓展运算符（数组中元素均为一维是深拷贝，元素一维以上是值的引用，浅拷贝，只复制指针）<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cisum/p/10184844.html">js - object.assign 以及浅、深拷贝</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hyns/p/12405328.html">JS中实现深拷贝的几种方法</a><br>(2) 深拷贝：通用循环（多个递归：如果属性还是对象，进一步clone；循环引用问题，通过map解决）, JSON.stringify()（无法实现对象中方法的深拷贝）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/alokka/article/details/103423035">JS 基本数据类型和引用数据类型的区别及浅拷贝和深拷贝</a></p>
+<ol start="3">
+<li><p>js底层没有整数，都是64位浮点数存储。所以会出现 0.1+0.2 &#x3D;&#x3D;&#x3D; 0.3返回false。</p>
+</li>
+<li><p>typeof和Object.prototype.toString.call()：<br>typeof null : object<br>Object.prototype.toString.call(null) : [object Null]<br>typeof判断数据类型，只能：number，string，undefined，boolean，object,function，而对于object中的 对象、数组，不会细分。Object.prototype.toString.call(o) 可以返回 o 具体为数组、对象。</p>
+</li>
+<li><p>call(), apply(), bind()：<br>改变this指向，call和apply功能相同，但call传的是参数列表，apply数组。bind参数和call相同，返回一个永久改变this指向的函数，不会立即执行，调用的时候才执行，call、apply临时改变一次立刻执行。</p>
+</li>
+</ol>
+<p>啥时候用？<br>对象没有某个方法，但我想让它实现这个方法的功能，那么可以通过改变this指向的方式借用这个方法，fun.call(没有方法的对象)，从而实现这个没有方法的对象调用这个方法。比如：<br>Array.prototype.push.call(arrayLike, ‘jack’)：类数组的对象arrayLike，让它像数组一样push一个’jack’元素。</p>
+<p>获得参数列表，[…arguments]，去掉第一个参数的参数列表：[…arguments].slice(1)<br>一些题可以做一做：<br><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/a616b3de81b948fda9a92db7e86bd171?tpId=2&tqId=10851&rp=1&ru=/ta/front-end&qru=/ta/front-end&difficulty=&judgeStatus=&tags=/question-ranking">修改 this 指向</a><br><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/d47b482e7148497582c7a995df51f393?tpId=2&tqId=37896&rp=1&ru=/ta/front-end&qru=/ta/front-end&difficulty=&judgeStatus=&tags=/question-ranking">使用 apply 调用函数</a><br><a target="_blank" rel="noopener" href="https://www.nowcoder.com/practice/df84fa320cbe49d3b4a17516974b1136?tpId=2&tqId=37895&rp=1&ru=/ta/front-end&qru=/ta/front-end&difficulty=&judgeStatus=&tags=/question-ranking">使用 arguments</a></p>
+<p>new也可以改变this指向，通过执行一个构造函数，创建一个对象实例，指向该实例。不过如果构造函数return的是一个新对象，this会指向这个新对象。<br>new的步骤：<br>1.创建一个新对象<br>2.改变this指向这个新对象<br>3.执行构造函数中的代码，为新对象添加属性<br>4.返回新对象</p>
+<p>关于this指向：<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pssp/p/5216085.html">彻底理解js中this的指向，不必硬背。</a><br>this指向只有在函数执行的时候才能确定。<br>this永远指向最后调用它的对象，如果多层对象，指向最内层上一级的对象。<br>new关键字创建一个对象实例，new关键字可以改变this指向，指向创建的对象实例。（new关键字会先创建一个新的对象，然后自动调用apply之类，改变this指向）<br>如果new的那个函数的返回值是一个对象，那么指向那个返回的对象，如果不是一个对象，还是指向创建的对象实例。</p>
+<p>一个疑惑：为什么bind底层实现需要闭包？<a target="_blank" rel="noopener" href="https://www.cnblogs.com/admos/p/4453259.html">https://www.cnblogs.com/admos/p/4453259.html</a></p>
+<ol start="6">
+<li><p>let const var<br>var声明全局变量，但在函数内声明的是局部变量，其他区块都是全局变量，let和const都是声明块级局部变量，就是说只在所在的代码块有效。其中const在声明的时候必须赋值，而且只能进行一次赋值，后面不可以修改。其中如果声明的是复杂数据类型，比如object，其属性是可以修改的。var可以重复声明，后面的会覆盖前面的，let和const都不可以重复声明。var存在变量提升，let和const都不存在变量提升。<br>ps：暂时性死区：不能在初始化之前，使用变量。<br>简单来说，就是变量已创建，但是还未词法绑定，所以不能被访问。也就是，一进入作用域创建变量，到变量开始可被访问之间的一段时间（var不存在，let和const存在，声明后才可以使用）。<br>pps：全局变量，局部变量？在函数外部声明的变量就是全局变量，函数内部也可以读取。而在函数内部定义的变量，外部是无法读取的，是局部变量。<br>ppps：闭包？使得外部可以访问内部的变量。</p>
+</li>
+<li><p>变量提升<br>js引擎在执行上下文的创建阶段，或者说对js代码预处理的时候，会把函数和变量的声明提升到作用域顶端。（注：只提升了声明，由于赋值是在第二阶段也就是执行阶段做的，所以赋值没有提升。）</p>
+<p> 函数声明先于变量声明，如果同名，变量声明不会覆盖之。<br> 函数声明，同名函数，后者覆盖前者。<br> 变量提升只提升声明，不提升赋值，而函数声明提升会连带定义一起提升。</p>
+</li>
+</ol>
+<p>注：函数表达式 var foo &#x3D; function(){} 不存在函数提升的情况（执行的是变量提升）。<br>ifelse语句中的函数声明，理解为函数表达式的形式，不存在函数提升，函数名当作变量名提升。</p>
+<ol start="8">
+<li>执行上下文</li>
+</ol>
+<p>js引擎并非一行一行地分析和执行程序，而是一段一段地分析执行。当执行一段代码时，会进行一个“准备工作”（执行上下文）（这个工作不仅包含了预编译阶段的‘变量提升、函数提升’等，还包含了执行阶段）。</p>
+<p>执行上下文的生命周期：<br>（1）创建阶段<br>在这个阶段中，执行上下文会分别创建变量对象，建立作用域链，以及确定this的指向。<br>（2）代码执行阶段<br>创建完成之后，就会开始执行代码，这个时候，会完成变量赋值，函数引用，以及执行其他代码。</p>
+<p>执行上下文：<br>当js执行一段可执行代码时，会创建对应的执行上下文，包括三个属性：<br>变量对象、作用域链、this指向<br>（1）变量对象：<br>全局上下文：全局对象，一个Object构造函数实例化的对象。浏览器中，全局对象就是window对象。<br>函数上下文：活动对象(activation object, AO)。进入到执行上下文，才会被激活，其上的各种属性才能被访问。<br>（2）作用域链：<br>js：词法作用域（静态作用域）<br>词法作用域：函数的作用域在函数定义的时候就决定了。<br>动态作用域：在函数调用的时候才决定。</p>
+<p>在js中，作用域分为 全局作用域 ， 函数作用域 和 ES6的块级作用域。<br>作用域可以用来隔离变量，不同作用域内的同名变量不会冲突。<br>当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级(词法层面上的父级)执行上下文的变量对象中查找，一直找到全局上下文的变量对象，也就是全局对象。这样由多个执行上下文的变量对象构成的链表就叫做作用域链。</p>
+<p>注：作用域 vs 上下文：<br>函数作用域，在函数定义的时候就确定好了，参考前面的词法作用域。<br>函数执行上下文，其中this指向，由函数运行的时候决定的。</p>
+<p>作用域代表一块范围，其作用是让变量在此范围内起作用，而执行上下文用来管理这些变量，包括代码执行前的准备工作、代码执行。<br>作用域只是一个“地盘”，其中没有变量。变量是通过作用域对应的执行上下文环境中的变量对象来实现的。函数每调用一次，都会产生一个新的执行上下文环境。因为不同的调用可能就有不同的参数。<br>所以：作用域中变量的值是在执行过程中确定的，而作用域是在函数创建时就确定的。如果要查找一个作用域下某个变量的值，就需要找到这个作用域对应的执行上下文环境，再在其中找到变量的值。<br>（3）this指向<br>由于函数是一个单独的值（函数名中存的地址），所以它可以在不同的环境（上下文）中执行。<br>this的设计：在函数体内部，指代函数当前的运行环境。<br>一些使用总结：<br>箭头函数，指向上层作用域的this。<br>非箭头函数：作为对象的方法调用，指向该对象。<br>           直接调用，指向全局。<br>           作为构造函数调用，指向new出来的对象。如果构造函数return的是一个新对象，this会指向这个新对象。<br>           事件绑定，指向绑定了事件的对象。<br>           定时器函数，指向window。<br>           call，apply，bind改变this指向。</p>
+<p>执行上下文栈：用来管理执行上下文。<br>当js要开始解释执行代码的时候，首先遇到全局代码，向执行上下文栈push一个全局执行上下文（globalContext）。只有整个应用程序结束时，栈才会被清空，因此程序结束前，栈底永远有个globalContext。<br>当执行一个函数时，就会创建一个执行上下文，并压入执行上下文栈，函数执行完毕时，将其从栈中弹出。</p>
+<ol start="9">
+<li>闭包<br>函数内部可以读取全局变量，但是外部无法读取函数内部的局部变量。如果想要从外部读取函数的局部变量，比如函数f1的局部变量，通过在f1内定义一个函数f2，f2可以读取到f1的变量，将f1的返回值为f2。就可以在f1外部读取到f1的内部变量了。<br>那么f2就可以理解为闭包，也就是能读取其他函数内部变量的函数，或者说是函数的子函数，子函数可以读取父函数的变量。闭包的作用是，一个是外部可以读取函数内部的局部变量，一个是这些变量可以始终保持在内存中，比如内部变量可以记住上一次调用时的运算结果。这是因为闭包使用了外层变量，导致外层函数不能从内存释放，只要闭包没有被垃圾回收机制清除，外层函数提供的运行环境也不会被清除，内部变量就始终保持当前值，供闭包读取。</li>
+</ol>
+<p>其实bind底层就有类似闭包，因为bind返回一个函数。所以bind有一个应用是可以对函数预设初始参数，第一次调用时传入了参数，这个参数可以记住，下一次调用可以叠加参数。<br>    function a(){<br>        return Array.peototype.slice.call(arguments);&#x2F;&#x2F;将类数组转换成真正的数组<br>    }<br>    var b &#x3D; a.bind(this,15,20);<br>    alert(b()); &#x2F;&#x2F;弹出 15，20<br>    var s &#x3D; b(25,30);<br>    alert(s); &#x2F;&#x2F;弹出 15，20，25，30</p>
+<p>垃圾回收机制<br>有两种方法，标记清除和引用计数。<br>（1）比较常用的就是标记清除。将无法删除的那些（局部变量、参数、全局变量）成为根，垃圾回收定期获取并标记根，访问并标记所有他们的引用，一层层向下访问，直到有未访问的引用为止。除了标记的对象，未被标记的将被删除。<br>（2）引用计数就是，记录每个值被引用的次数，为0的就回收。<br>为了使其运行更快，JS一些优化：分代回收（对象分为新对象和旧对象，活得足够久的对象，会变老，且很少接收检查）；增量回收（将垃圾回收分解为多个部分，分别执行）；空闲时间收集（只在cpu空闲时，减少对执行的可能影响）</p>
+<ol start="10">
+<li><p>原型<br>每个对象有一个原型对象，当视图访问一个对象的属性，不仅在该对象上搜寻，还会在原型上搜寻，如果找不到，再依次向上搜寻原型的原型，直到object的原型对象<br>构造函数有一个prototype属性，指向其原型对象。原型对象被哪一个构造函数引用，constructor构造器，指向默认声明的那个函数。构造函数new一个实例对象，实例对象._proto_指向构造函数的原型对象。原型对象的上一级还有原型对象，直到Object<br>原型链：从实例对象往上找，找到原型对象，再往上有上一级的原型对象，直到Object.prototype（顶端）<br>共享：原型对象上的属性和方法，是被实例共享的</p>
+</li>
+<li><p>继承<br>构造函数继承：Child内部修改this指向：Parent.call(this)<br>只能继承父类实例的属性和方法，不能继承原型的<br>原型链继承：Child.prototype &#x3D; new Parent()<br>挂到原型链上，但所有实例共享原型的属性和方法。共用，有风险。<br>组合继承：构造+原型<br>寄生组合继承：中间对象<br>extends：ES6使用，本质也是寄生组合继承<br>其中，super关键字，代表父类的构造函数，并在子类中执行Parent.apply(this)，从而将父类实例对象的属性和方法，添加到子类的this上面。<br>子类必须在constructor方法中调用super方法，如果子类没有定义constructor方法，constructor方法以及其内部的super方法会被默认添加。<br><a target="_blank" rel="noopener" href="https://www.imooc.com/article/79235">JavaScript继承之ES6的extends</a></p>
+</li>
+<li><p>promise<br>用来解决传统的回调地狱。链式操作处理异步操作。<br>promise对象三种状态：pending，fulfilled，rejected<br>一旦状态改变（pending &#x3D;&gt; fulfilled 或 pending &#x3D;&gt; rejected），就不会再变。<br>Promise对象是一个构造函数，用来生成Promise实例<br>resolve函数：pending &#x3D;&gt; fulfilled<br>reject函数：pending &#x3D;&gt; rejected<br>实例有这些方法：<br>then是实例状态发生改变时的回调函数，第一个参数是resolved状态的回调函数，第二个参数是rejected状态的回调函数。返回一个新的promise实例，也就是promise能链式书写的原因。<br>catch()方法用于指定发生错误时的回调函数。Promise对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。<br>一般来说，使用catch方法代替then()第二个参数（rejected状态的回调函数）。<br>finally()方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。</p>
+</li>
+</ol>
+<p>async await<br>异步编程<br>js单线程，浏览器多线程<br>事件冒泡 event loop</p>
+<p>ajax：<br>实现异步通信，通过XMLHttpRequest对象，通过与服务端建立连接，发送请求，获得数据，更新到html页面。</p>
+<p>1.创建XMLHttpRequest对象<br>2.创建http请求，设置请求方式（get、post）、url等。open()打开与服务器的连接<br>3.设置响应http请求状态变化的函数<br>4.发送请求。send()<br>5.获取返回的数据<br>6.使用js和dom实现局部刷新<br>XMLHttpRequest对象有一个onreadystatechange事件，在XMLHttpRequest对象的状态（XMLHttpRequest.readyState）发生变化时（1，2，3，4）被调用，5种状态：<br>0：创建了对象，还没open()<br>1：请求开始，open()，还没send()<br>2：请求发送完成，send()<br>3：读取服务器响应<br>4：读取响应结束<br>一般比较关注最后一个状态</p>
+<p>二、ES6相关：<br>map，set<br>for..of 和 for..in<br>对象的for..in：遍历自身和继承的所有可迭代属性。如果想只遍历自身的,结合hasOwnProperty。<br>数组的for..in：不推荐，非数字键也会遍历。使用for…of</p>
+<p>三、网络相关：</p>
+<p>输入网址到返回请求的过程：<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000006879700">从输入URL到页面加载发生了什么</a></p>
+<pre><code>1.DNS解析
+2.TCP连接
+3.发送HTTP请求
+4.服务器处理请求并返回HTTP报文
+5.浏览器解析渲染页面
+6.连接结束
+</code></pre>
+<p>（1）DNS解析</p>
+<p>进行一个从网址到IP地址的转换。比如查找<a target="_blank" rel="noopener" href="http://www.google.com的ip地址,首先在本地域名服务器查找,如果没有找到,到根域名服务器查找,如果还没有,向com顶级域名服务器查找,直到找到,缓存到本地,以供下次查询适用./">www.google.com的IP地址，首先在本地域名服务器查找，如果没有找到，到根域名服务器查找，如果还没有，向com顶级域名服务器查找，直到找到，缓存到本地，以供下次查询适用。</a><br>网址的解析是一个从右到左的过程，. -&gt; .com -&gt; google.com. -&gt; <a target="_blank" rel="noopener" href="http://www.google.com/">www.google.com</a>.<br>补充：DNS优化<br>（1）查找耗时，如果减少查找的步骤，DNS缓存。DNS存在着多级缓存，有以下几种：浏览器缓存、系统缓存、路由器缓存、IPS服务器缓存、根域名服务器缓存、顶级域名服务器缓存、主域名服务器缓存。<br>（2）DNS负载均衡<br>背后有很多服务器，DNS每次返回一个合适的IP地址，比如根据每台机器的负载量，机器距离用户地理位置的距离等，这个过程就是DNS负载均衡。<br>CDN(Content Delivery Network)就是利用DNS的重定向技术，返回一个跟用户最接近的点的IP地址给用户，CDN节点的服务器负责响应用户的请求，提供所需的内容。<br>（2）TCP连接<br>HTTP协议使用TCP作为其传输层协议。HTTP包裹在TCP报文中发送，服务端收到TCP报文会解包提取HTTP报文，但是HTTP是明文，如果中间被截取的话存在信息泄露的风险。解决：加密，HTTPS，其本质就是 HTTP+SSL。在HTTP报文进入TCP报文之前，先使用SSL对HTTP报文进行加密。<br>HTTPS在传输数据之前需要客户端与服务端进行一个握手（SSL&#x2F;TLS握手），握手过程中确立双方加密传输数据的密码信息。</p>
+<p>补充：http和https的区别：<br>HTTPS：是以安全为目标的 HTTP 通道，是 HTTP 的安全版。HTTPS 的安全基础是 SSL。SSL 协议位于 TCP&#x2F;IP 协议与各种应用层协议之间，为数据通讯提供安全支持。SSL 协议可分为两层：SSL 记录协议（SSL Record Protocol），它建立在可靠的传输协议（如TCP）之上，为高层协议提供数据封装、压缩、加密等基本功能的支持。SSL 握手协议（SSL Handshake Protocol），它建立在 SSL 记录协议之上，用于在实际的数据传输开始前，通讯双方进行身份认证、协商加密算法、交换加密</p>
+<p>1.HTTPS  协议需要到 CA （Certificate Authority，证书颁发机构）申请证书，一般免费证书较少，因而需要一定费用。<br>2、HTTP 是超文本传输协议，信息是明文传输，HTTPS 则是具有安全性的 SSL 加密传输协议。<br>3、HTTP 和 HTTPS 使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。<br>4、HTTP 的连接很简单，是无状态的。HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 HTTP 协议安全。</p>
+<p>（3）发送HTTP请求<br>客户端，构建HTTP请求报文，通过TCP协议发送到服务端指定端口（HTTP协议80或8080，HTTPS协议443）。<br>请求报文：三部分：请求行、请求头、请求正文<br>（a）请求行<br>http方法，页面地址，协议，版本。<br>eg: GET index.html HTTP&#x2F;1.1</p>
+<p>HTTP方法：<br>GET：获取资源<br>POST：传输资源<br>PUT：更新资源<br>DELETE：删除资源<br>HEAD：获得报文首部<br>post和get的区别<br>1.浏览器有回退前进，回退的时候，GET不会重复提交，POST会再次提交请求<br>2.GET请求会被浏览器自动缓存<br>3.GET请求参数会被完整保留在浏览器历史记录里<br>4.GET请求在URL中传送的参数有长度限制（这个是来自于浏览器的限制，不是http协议的限制）<br>5.GET参数通过URL传递，POST放在Request body中<br>get 请求传参长度的误区</p>
+<p>误区：我们经常说 get 请求参数的大小存在限制，而 post 请求的参数大小是无限制的。<br>实际上 HTTP 协议从未规定 GET&#x2F;POST 的请求长度限制是多少。对 get 请求参数的限制是来自浏览器或web 服务器，浏览器或 web 服务器限制了 url 的长度，且不同的浏览器和web服务器，限制的长度不一样。<br>（b）请求头</p>
+<p>一堆k-v，告诉服务端要哪些内容<br>Accept：指定客户端接收哪些类型的信息<br>Accept-Encoding：指定接收的编码方式<br>Connection：设为Keep-alive，告诉客户端本次HTTP请求结束之后，不需要关闭TCP连接，下次HTTP请求使用相同的TCP通道，节省TCP连接建立的时间。<br>持久连接keep-alive</p>
+<p>非持久连接（短连接）：每个连接处理一个请求-响应（HTTP1.0）<br>持久连接（长连接）：每个连接处理多个请求-响应（HTTP1.1）<br>持久连接情况下，服务器发出响应后让TCP连接继续打开着。同一对客户&#x2F;服务器之间的后续请求和响应可以通过这个连接发送。<br>（c）请求正文</p>
+<p>当HTTP使用post、put方法时，需要向服务端传递数据，这写在请求正文中。<br>而且请求头中有一些和请求正文相关的信息，比如现在的web应用通常采用Rest架构，请求的数据格式一般为json。这就需要设置Content-Type：application&#x2F;json</p>
+<p>（4）服务器处理请求并返回HTTP报文</p>
+<p>接收到TCP报文开始，这一部分对应于编程语言中的socket。它会对TCP连接进行处理，对HTTP协议进行解析，并按照报文格式进一步封装成HTTP Request对象，供上层使用。这一部分工作一般是由Web服务器去进行，比如Tomcat。<br>HTTP响应报文：三部分：状态码、响应报头、响应报文<br>（a）状态码</p>
+<p>1xx：指示信息<br>2xx：成功<br>3xx：重定向<br>4xx：客户端错误<br>5xx：服务器错误<br>一些例子：</p>
+<p>200：请求成功<br>204：执行成功，但没有内容。浏览器不会刷新页面，也不会导向别的页面。<br>206：部分请求成功。客户发送了一个带有Range头的GET请求，服务器完成了它<br>301：所请求页面转移到新的url<br>302：临时转移到新的url<br>304：客户端有缓冲的文档，发请求，服务器告诉客户端，原来缓冲的还可以使用<br>400：客户端请求有语法错误<br>401：请求未授权<br>403：被请求页面的访问被禁止<br>404：资源不存在<br>500：服务器错误，or原来缓冲的文档还能用<br>503：请求未完成，服务器临时过载或宕机<br>（b）响应报头<br>（c）响应报文</p>
+<p>服务器返回给浏览器的文本信息，比如html，css，js，图片等文件<br>（5）浏览器解析渲染页面</p>
+<p>浏览器接收到html，css，js文件，开始边解析边渲染。把html经过parser转成DOM树，css转成CSSOM树，再结合成Render树。经过Layout计算DOM节点中各个元素要显示的位置大小等，这一过程称为reflow。绘制内容，Painting画图，这一过程称为repain。最后display展示在浏览器上。页面在首次加载时必然会经历reflow和repain。</p>
+<p>回流Reflow</p>
+<p>浏览器为了重新渲染部分或者全部的文档，重新计算DOM中元素的位置和几何构造的过程。<br>触发回流：</p>
+<p>1.增加、删除、修改DOM节点<br>2.移动DOM位置<br>3.设置style属性<br>4.修改网页默认字体<br>重绘Repaint</p>
+<p>不影响当前结构和布局，比如改变颜色等。<br>触发Repaint</p>
+<p>DOM改动<br>CSS改动<br>reflow和repain非常消耗性能，如何减少reflow&#x2F;repaint：</p>
+<p>1.避免在document上直接进行频繁的DOM操作，如果确实需要可以采用off-document<br>2.集中修改样式<br>3.缓存Layout属性值<br>4.设置元素的position为absolute或fixed</p>
+<p>JS解析</p>
+<p>JS解析引擎，单线程运行，执行机制：一个主线程+任务队列。<br>JS中任务分为同步任务和异步任务，同步任务是立即执行的任务，直接进入到主线程中执行，形成一个执行栈，异步任务如ajax网络请求，setTimeout定时函数，进入任务队列，主线程内的任务执行完，去任务队列读取任务进入主线程执行。<br>异步任务还可以细分为微任务与宏任务，微任务要在当前宏任务结束之前（of course主函数执行结束之后）运行。微任务，比如.then，nextTick，宏任务，比如script，setTimeout，UI，I&#x2F;O<br>事件循环：脚本运行时先依次运行执行栈，然后会从任务队列里提取事件，运行任务队列中的任务，这个过程是不断重复的，所以又叫做事件循环。<br>async与await<br>async声明一个异步方法，所以是异步任务。await会阻塞后面的代码（也就是加入微任务队列）。</p>
+<p>所以就是说同步任务直接进入主线程执行，遇到异步任务（ajax，setTimeout）就加入队列，主线程内的任务执行完，去队列读取任务加入到主线程执行。异步任务里面，这一个宏任务执行结束之前，要把微任务都执行了，再开始下一个宏任务。遇到await，await后面的代码加入微任务列表，并跳出，继续去执行之前的主线程的任务。<br>（6）连接结束<br>总结：</p>
+<p>浏览器在解析过程中，如果遇到请求外部资源，比如图像，js等，将重复该1-6步骤，下载该资源。请求过程是异步的，并不影响HTML文档的加载，但是js文件会阻塞文档的加载。因为js有可能修改DOM结构，这就意味着，js执行完以前，后续资源的下载是没有必要的。<br>css文件不会阻塞文档的加载，但是会影响js文件的执行（js脚本执行时，可能请求样式信息，如果样式还没有加载和解析，存在问题。在这种情况下，浏览器会先下载和构建CCSOM，然后再执行js，最后再继续文档的解析）。<br>Web优化，提升页面性能的方法：</p>
+<p>1.资源压缩合并，减少HTTP请求<br>2.非核心代码异步加载<br>3.利用浏览器缓存<br>4.使用CDN<br>5.预解析DNS<br>异步加载</p>
+<p>1.动态生成script标签：在js里创建script标签，插入DOM中，加载完成后callback<br>2.defer：html解析完才执行，【按加载顺序执行】<br>3.async：加载完立刻执行，【和加载顺序无关】</p>
+<p>计算机网络<br>http方法，post和get<br>网络安全</p>
+<p>缓存：<br>h5离线缓存</p>
+<p>浏览器缓存：强缓存 协商缓存<br>通过在一段时间内保留已接收的web资源的一个副本，在资源有效时间内，发起再次请求，直接使用缓存的副本，而不是向服务器发请求。<br>可以有效提高页面的打开速度，减少不必要的网络带宽的消耗。<br>分为强缓存和协商缓存。浏览器在加载资源时，先根据一些http header判断是否命中强缓存，如果命中，直接从自己的缓存中读取资源，不会发请求。否则，发一个请求到服务器，服务器端根据另一些http header 判断是否命中协商缓存，如果命中，返回一个304状态，告诉客户端可以直接从缓存中加载这个资源，让浏览器使用本地的缓存副本。当协商缓存也没有命中，就从服务器加载资源。<br>二者的共同点：都是在客户端缓存中加载资源。二者的区别，强缓存不会发送请求，协商缓存会发送一个请求。<br>强缓存：<br>Expires：指定资源的过期时间，绝对时间，服务器的时间。可能存在这样的问题，就是客户端的时间和服务器端的时间不一致，或者用户可以对客户端时间进行修改的情况，这样就可能会影响缓存命中的结果。<br>Cache-control：相对时间，根据第一次请求的时间和来Cache-Control设定的有效期，计算出资源过期的时间。<br>Cache-control的优先级高于Expires<br>协商缓存：<br>Last-Modified、If-Modified-Since：Last-Modified：资源最后一次修改时间。浏览器下一次发起请求时，会添加一个If-Modified-Since属性，属性值为上一次资源返回时的Last-Modified。发送到服务器厚，和真实的最后一次修改时间比较，来判断资源是否修改。没修改，返回304，如果修改了，返回修改后的资源。<br>缺点，就是 Last-Modified 标注的最后修改时间只能精确到秒级，如果某些文件在1秒钟以内，被修改多次的话，那么文件已将改变了但是 Last-Modified 却没有改变，这样会造成缓存命中的不准确。<br>Etag、If-None-Match：Etag：资源是否发生改变。请求时，If-None-Match为Etag值，服务器将这个值和资源当前Etag比较，判断是否发生改变。<br>Etag优先级更高。</p>
+<p>浏览器存储：cookie sessionStorage localStorage indexDB<br>cookie、localStorage、sessionStorage、indexDB(大规模数据)<br>cookie是为了标识用户身份的数据。服务器设置，客户端存储，每次发起同源请求的时候发给服务端。cookie过期时间之前一直有效，和窗口关闭与否无关。最多存4K数据。只能同源<br>localStorage和sessionStorage是浏览器本地存储的方法。localStorage除非手动删除，不然不会失效。sessionStorage 在一次会话结束失效。二者都能存5M或更大的数据，只能同源，sessionStorage同源且同会话。<br>indexDB是本地存大量数据的时候，不是关系型数据库，内部是对象仓库的形式，更接近NoSQL数据库。</p>
+<p>session和cookie：<br>都是用来会话跟踪的技术，cookie存储在客户端，session存储在服务端。<br>cookie：客户端请求服务器，服务器需要记录客户状态，颁发给客户端一个cookie。客户端保存，当再次请求该网站，通过该cookie确认用户身份。<br>session：客户端访问服务端的时候，服务端记录客户端信息。<br>session需要使用cookie作为识别标志，向客户端发送一个名为JSESSIONID的cookie，和session的id值一一对应，以此来识别是否是统一用户。</p>
+<p>如果说Cookie机制是通过检查客户身上的“通行证”来确定客户身份的话，那么Session机制就是通过检查服务器上的“客户明细表”来确认客户身份。Session相当于程序在服务器上建立的一份客户档案，客户来访的时候只需要查询客户档案表就可以了。<br>二者的生命周期也不相同。</p>
+<p>token：作为身份验证的身份令牌，安全性比较好。</p>
+<p>跨域<br>ajax，axios</p>
+<p>四、vue相关：<br>vue核心：数据驱动(MVVM)，组件化，指令系统（v-）。</p>
+<ol>
+<li><p>Vue和React对比：<br>相同点：都有组件化思想，虚拟dom，数据驱动视图。<br>不同点：<br>数据流向的不同。react从诞生开始就推崇单向数据流，而Vue是双向数据流。<br>数据变化的实现原理不同。react使用的是不可变数据，而Vue使用的是可变的数据<br>组件化通信的不同。react中我们通过使用回调函数来进行通信的，而Vue中子组件向父组件传递消息有两种方式：事件和回调函数<br>diff算法不同。react主要使用diff队列保存需要更新哪些DOM，得到patch树，再统一操作批量更新DOM。Vue 使用双向指针，边对比，边更新DOM</p>
+</li>
+<li><p>数据传递，组件间通信：<br>父子之间:<br>（1）通过pros向子组件传数据<br>父→子：<br>父组件中：v-bind绑定要传递的元素，子组件通过props接收。<br>子→父：<br>通过事件emit<br>（2）父组件获取子组件的属性或调用子组件方法：ref<br>（3）通过v-model和emit（类似1）<br>多级后代：<br>（4）provide&#x2F;inject<br>同级：<br>（5）vuex</p>
+</li>
+</ol>
+<p>（1）父组件向子组件传值：props<br>（2）子组件向父组件传值：this.$emit 回调函数？<br>（3）路由传值：query和params，要在created()生命周期获取值<br>（4）通过localStorage或sessionStorage存储数据<br>（5）vuex：全局状态管理</p>
+<p>生命周期<br>vue双向绑定<br>mvvm<br>v-bind和v-model<br>v-if和v-show<br>v-if和v-for<br>vue-router：hash，history<br>虚拟dom<br>key</p>
+<p>vuex</p>
+<p>五、css相关：<br>居中<br>画圆<br>flex布局</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/AmandaWuyy" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
